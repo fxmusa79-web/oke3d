@@ -1,0 +1,41 @@
+---
+description: Non-negotiable OKE3D brand, motion, and quality constraints for all work on this project.
+alwaysApply: true
+---
+
+# OKE3D — Non-negotiable
+
+## Identity
+
+Build a premium cinematic collectible experience for **oke3d.nl**, not a generic AI landing page or SaaS template.
+
+Feel: collectible culture + 3D craft + digital art + premium product.  
+Not: crypto / gaming / AI startup / kids toy store.
+
+## Visual
+
+- Dark charcoal / near-black + off-white
+- Electric blue = **accent only** (filament, edge, type, micro UI) — never default full-page blue wash
+- Typography is a primary design material (editorial display + clean body)
+- Asymmetry, negative space, edge-to-edge allowed; avoid default card grids
+
+## Forbidden default hero pattern
+
+Black background + blue gradient blob + big white headline + glowing CTA + floating spinning object + fade-in-up on everything + glassmorphism + random particles.
+
+## Motion
+
+- GSAP + ScrollTrigger; follow official GSAP skills + `.cursor/skills/oke3d-motion-design`
+- Primary / secondary / ambient hierarchy
+- No infinite product spin
+- No animation checklist fade-ins
+- `matchMedia` for mobile vs desktop
+- Honor `prefers-reduced-motion`
+
+## Stack
+
+Vite + React + TS + Cloudflare Workers. No Tailwind/tsparticles/R3F unless explicitly approved. Quality over speed; hero acceptance criteria must pass Browser QA before calling hero done.
+
+## Skills
+
+Apply project skills: `oke3d-creative-direction`, `oke3d-motion-design`, `oke3d-frontend-quality`.

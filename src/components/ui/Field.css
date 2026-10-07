@@ -1,0 +1,83 @@
+.oke-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--oke-space-2);
+  width: 100%;
+}
+
+.oke-field__label {
+  font-family: var(--oke-font-mono);
+  font-size: var(--oke-text-label);
+  font-weight: 500;
+  letter-spacing: var(--oke-tracking-meta);
+  text-transform: uppercase;
+  color: var(--oke-ink-muted);
+}
+
+.oke-input,
+.oke-textarea {
+  width: 100%;
+  min-height: var(--oke-control-h-md);
+  padding: var(--oke-space-3) var(--oke-space-4);
+  font-family: var(--oke-font-body);
+  font-size: var(--oke-text-body);
+  line-height: var(--oke-leading-tight);
+  color: var(--oke-ink);
+  background: var(--oke-bg-elevated);
+  border: 1px solid var(--oke-line-strong);
+  border-radius: var(--oke-radius-sm);
+  transition:
+    border-color var(--oke-dur-micro) var(--oke-ease-out),
+    box-shadow var(--oke-dur-micro) var(--oke-ease-out);
+}
+
+.oke-textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.oke-input::placeholder,
+.oke-textarea::placeholder {
+  color: var(--oke-ink-muted);
+  opacity: 0.7;
+}
+
+.oke-input:hover,
+.oke-textarea:hover {
+  border-color: var(--oke-ink);
+}
+
+.oke-input:focus,
+.oke-textarea:focus {
+  outline: none;
+}
+
+.oke-input:focus-visible,
+.oke-textarea:focus-visible {
+  border-color: var(--oke-accent);
+  box-shadow: var(--oke-focus-ring);
+}
+
+.oke-input:disabled,
+.oke-textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--oke-surface);
+}
+
+.oke-field--error .oke-input,
+.oke-field--error .oke-textarea {
+  border-color: var(--oke-danger);
+}
+
+.oke-field__hint {
+  margin: 0;
+  font-size: var(--oke-text-sm);
+  color: var(--oke-ink-muted);
+}
+
+.oke-field__error {
+  margin: 0;
+  font-size: var(--oke-text-sm);
+  color: var(--oke-danger);
+}

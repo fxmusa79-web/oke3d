@@ -1,7 +1,4 @@
-import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
 import { Button } from '../ui/Button'
 import { assets } from '../../data/assets'
 import { fitnessFigures } from '../../data/fitness'
@@ -9,89 +6,41 @@ import { useI18n } from '../../i18n/useI18n'
 import { HorizontalScroller } from './HorizontalScroller'
 import './HomeSections.css'
 
-gsap.registerPlugin(useGSAP)
-
 export function AboutSection() {
   const { t } = useI18n()
-  const rootRef = useRef<HTMLElement>(null)
-
-  const cards = [
-    {
-      id: 'winter-single',
-      src: assets.about.winterSingle,
-      alt: 'OKE monochrome winter collectible',
-    },
-    {
-      id: 'black-coffee',
-      src: assets.about.blackCoffee,
-      alt: 'OKE black coffee ghost',
-    },
-  ]
-
-  useGSAP(
-    () => {
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      if (reduced) return
-
-      const cardsEl = gsap.utils.toArray<HTMLElement>('.home-about__card')
-      const cleanups: Array<() => void> = []
-
-      cardsEl.forEach((card) => {
-        const enter = () =>
-          gsap.to(card, { scale: 1.03, duration: 0.35, ease: 'power2.out', overwrite: 'auto' })
-        const leave = () =>
-          gsap.to(card, { scale: 1, duration: 0.35, ease: 'power2.out', overwrite: 'auto' })
-        card.addEventListener('pointerenter', enter)
-        card.addEventListener('pointerleave', leave)
-        cleanups.push(() => {
-          card.removeEventListener('pointerenter', enter)
-          card.removeEventListener('pointerleave', leave)
-        })
-      })
-
-      return () => cleanups.forEach((fn) => fn())
-    },
-    { scope: rootRef },
-  )
 
   return (
-    <section
-      ref={rootRef}
-      className="home-about"
-      id="over-oke3d"
-      aria-labelledby="about-title"
-    >
-      <div className="home-about__grid">
+    <section className="home-about home-about--lean" id="over-oke3d" aria-labelledby="about-title">
+      <div className="home-about__grid home-about__grid--lean">
         <div className="home-about__copy">
           <p className="home-section__eyebrow">{t.about.eyebrow}</p>
           <h2 id="about-title" className="home-about__title">
             {t.about.title}
           </h2>
           <p className="home-section__lede">{t.about.lede}</p>
+          <p className="home-section__lede home-section__lede--follow">{t.about.body}</p>
           <div className="home-about__actions">
             <Button to="/collectie">{t.nav.cta}</Button>
+            <Button to="/edities" variant="secondary">
+              {t.nav.editions}
+            </Button>
           </div>
         </div>
 
-        <div className="home-about__cards">
-          {cards.map((card) => (
-            <Link
-              key={card.id}
-              to="/collectie"
-              className="home-about__card"
-              aria-label={card.alt}
-            >
-              <img
-                src={card.src}
-                alt={card.alt}
-                width={672}
-                height={840}
-                loading="lazy"
-                decoding="async"
-              />
-            </Link>
-          ))}
-        </div>
+        <Link
+          to="/collectie"
+          className="home-about__card home-about__card--single"
+          aria-label="OKE monochrome winter collectible"
+        >
+          <img
+            src={assets.about.winterSingle}
+            alt=""
+            width={672}
+            height={840}
+            loading="lazy"
+            decoding="async"
+          />
+        </Link>
       </div>
     </section>
   )

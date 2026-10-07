@@ -31,21 +31,21 @@ export const assets = {
   /** Single OKE studio figures only. Never sheets or fashion dolls. */
   make: {
     collectibles: '/assets/dark/black-fitness-kettlebell.png',
-    editions: '/products/bbq-edition/bbq-grillmaster.webp',
-    custom: '/assets/edities/monochrome-couple.webp',
+    editions: '/products/bbq-edition/bbq-grillmaster.png',
+    custom: '/assets/edities/monochrome-couple.png',
     request: '/products/oke-collection/black-streetwear-coffee-cutout.png',
   },
 
   editions: {
     mono: '/assets/dark/winter-single.png',
-    winterCouple: '/assets/edities/monochrome-couple.webp',
-    bbq: '/products/bbq-edition/bbq-grillmaster.webp',
+    winterCouple: '/assets/edities/monochrome-couple.png',
+    bbq: '/products/bbq-edition/bbq-grillmaster.png',
     fitness: '/assets/dark/black-fitness-kettlebell.png',
     coffee: '/products/oke-collection/black-streetwear-coffee-cutout.png',
   },
 
   bbq: {
-    hero: '/products/bbq-edition/bbq-grillmaster.webp',
+    hero: '/products/bbq-edition/bbq-grillmaster.png',
     apron: '/assets/dark/bbq-apron.png',
     assembled: '/products/bbq-edition/bbq-assembled.png',
     explodedAlpha: '/products/bbq-edition/bbq-exploded-alpha.png',
@@ -53,7 +53,7 @@ export const assets = {
 
   custom: {
     /** OKE only. Never custom-dolls / fashion dolls / mint. */
-    monochromeCouple: '/assets/edities/monochrome-couple.webp',
+    monochromeCouple: '/assets/edities/monochrome-couple.png',
     winterSingle: '/assets/dark/winter-single.png',
   },
 
@@ -94,13 +94,13 @@ export const assetInventory: Array<{
   { path: '/products/oke-collection/mint-streetwear-cap.webp', kind: 'studio', note: 'Mint cap figure' },
   { path: '/products/oke-collection/mint-streetwear-hoodie.png', kind: 'studio', note: 'Mint hoodie' },
   { path: '/products/oke-collection/mint-streetwear-hoodie-cutout.png', kind: 'studio', note: 'Mint hoodie alpha' },
-  { path: '/products/oke-collection/black-coffee-hoodie.webp', kind: 'studio', note: 'Black coffee hoodie' },
+  { path: '/products/oke-collection/black-coffee-hoodie.png', kind: 'studio', note: 'Black coffee hoodie' },
   { path: '/products/oke-collection/black-fitness-kettlebell-cutout.png', kind: 'studio', note: 'Kettlebell cutout' },
   { path: '/products/oke-collection/mint-fitness-female.png', kind: 'sheet', note: 'Crop from sheet, edge fragments' },
   { path: '/products/oke-collection/black-fitness-male.webp', kind: 'sheet', note: 'Treat as sheet source, prefer cutouts' },
   { path: '/products/bbq-edition/bbq-exploded-alpha.png', kind: 'exploded', note: 'BBQ parts on dark' },
-  { path: '/products/bbq-edition/bbq-grillmaster.webp', kind: 'studio', note: 'BBQ grillmaster' },
-  { path: '/products/bbq-edition/bbq-apron.webp', kind: 'studio', note: 'BBQ apron' },
+  { path: '/products/bbq-edition/bbq-grillmaster.png', kind: 'studio', note: 'BBQ grillmaster' },
+  { path: '/products/bbq-edition/bbq-apron.png', kind: 'studio', note: 'BBQ apron' },
   { path: '/products/pastel-bike/oke-bike-pink-blossoms.webp', kind: 'lifestyle', note: 'Bike outdoors blossoms' },
   { path: '/products/pastel-bike/oke-bike-blue-garden.webp', kind: 'lifestyle', note: 'Bike garden' },
   { path: '/products/pastel-bike/oke-bike-pink-studio.webp', kind: 'studio', note: 'Bike studio' },

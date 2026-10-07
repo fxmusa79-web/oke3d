@@ -9,24 +9,24 @@
   display: block;
   aspect-ratio: 4 / 5;
   max-height: 22rem;
-  background: #ffffff;
-  border: 1px solid rgba(20, 23, 28, 0.05);
-  border-radius: 2px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
   overflow: hidden;
   text-decoration: none;
 }
 
 .oke-card.is-studio .oke-card__media,
 .oke-card.is-lifestyle .oke-card__media {
-  background: #ffffff;
+  background: transparent;
 }
 
 .oke-card.is-exploded .oke-card__media,
 .oke-card.is-bbq .oke-card__media {
   aspect-ratio: 1 / 1;
   max-height: 20rem;
-  background: #0a0a0a;
-  border-color: rgba(255, 255, 255, 0.08);
+  background: transparent;
+  border: none;
 }
 
 .oke-card__media img {

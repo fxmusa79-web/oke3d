@@ -1,0 +1,142 @@
+.oke-fab {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: var(--oke-z-sticky, 60);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.65rem;
+  pointer-events: none;
+}
+
+.oke-fab__trigger,
+.oke-fab__menu {
+  pointer-events: auto;
+}
+
+.oke-fab__trigger {
+  width: 3.25rem;
+  height: 3.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 999px;
+  background: var(--oke-ink);
+  color: var(--oke-bg);
+  cursor: pointer;
+  box-shadow:
+    0 10px 28px rgba(10, 10, 10, 0.22),
+    0 2px 8px rgba(10, 10, 10, 0.12);
+  transition:
+    transform var(--oke-dur-micro) var(--oke-ease-out),
+    background var(--oke-dur-micro) var(--oke-ease-out);
+}
+
+.oke-fab__trigger:hover {
+  transform: scale(1.04);
+}
+
+.oke-fab__trigger:focus-visible {
+  outline: none;
+  box-shadow: var(--oke-focus-ring);
+}
+
+.oke-fab.is-open .oke-fab__trigger {
+  background: var(--oke-dark-elevated);
+}
+
+.oke-fab__trigger-icon {
+  display: flex;
+  line-height: 0;
+}
+
+.oke-fab__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 15.5rem;
+  padding: 0.4rem;
+  background: var(--oke-bg-elevated);
+  border: 1px solid var(--oke-line);
+  border-radius: var(--oke-radius-md);
+  box-shadow: var(--oke-shadow-soft);
+  transform-origin: bottom right;
+  animation: oke-fab-in var(--oke-dur-small) var(--oke-ease-out);
+}
+
+.oke-fab__menu[hidden] {
+  display: none;
+}
+
+.oke-fab__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.75rem;
+  border-radius: var(--oke-radius-sm);
+  text-decoration: none;
+  color: var(--oke-ink);
+  transition: background var(--oke-dur-micro) var(--oke-ease-out);
+}
+
+.oke-fab__item:hover,
+.oke-fab__item:focus-visible {
+  background: var(--oke-surface);
+  outline: none;
+}
+
+.oke-fab__icon {
+  flex: 0 0 2rem;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--oke-bg);
+  color: var(--oke-ink);
+  border: 1px solid var(--oke-line);
+}
+
+.oke-fab__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.oke-fab__title {
+  font-family: var(--oke-font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.oke-fab__sub {
+  font-size: 0.72rem;
+  color: var(--oke-ink-muted);
+  line-height: 1.3;
+}
+
+@keyframes oke-fab-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oke-fab__menu {
+    animation: none;
+  }
+
+  .oke-fab__trigger {
+    transition: none;
+  }
+}

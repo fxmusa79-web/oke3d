@@ -1,0 +1,102 @@
+/* OKE3D type utilities — use for section/page hierarchy.
+   Prefer these over one-off clamps per component. */
+
+.oke-display {
+  font-family: var(--oke-font-display);
+  font-size: var(--oke-text-display);
+  font-weight: 800;
+  line-height: var(--oke-leading-display);
+  letter-spacing: var(--oke-tracking-display);
+  color: var(--oke-ink);
+}
+
+.oke-h1 {
+  font-family: var(--oke-font-display);
+  font-size: var(--oke-text-h1);
+  font-weight: 800;
+  line-height: var(--oke-leading-heading);
+  letter-spacing: var(--oke-tracking-display);
+  color: var(--oke-ink);
+}
+
+.oke-h2 {
+  font-family: var(--oke-font-display);
+  font-size: var(--oke-text-h2);
+  font-weight: 700;
+  line-height: var(--oke-leading-heading);
+  letter-spacing: var(--oke-tracking-tight);
+  color: var(--oke-ink);
+}
+
+.oke-h3 {
+  font-family: var(--oke-font-display);
+  font-size: var(--oke-text-h3);
+  font-weight: 700;
+  line-height: var(--oke-leading-tight);
+  letter-spacing: var(--oke-tracking-tight);
+  color: var(--oke-ink);
+}
+
+.oke-h4 {
+  font-family: var(--oke-font-display);
+  font-size: var(--oke-text-h4);
+  font-weight: 600;
+  line-height: var(--oke-leading-tight);
+  letter-spacing: var(--oke-tracking-tight);
+  color: var(--oke-ink);
+}
+
+.oke-body-lg {
+  font-family: var(--oke-font-body);
+  font-size: var(--oke-text-body-lg);
+  font-weight: 400;
+  line-height: var(--oke-leading-body);
+  color: var(--oke-ink);
+  max-width: var(--oke-measure);
+}
+
+.oke-body {
+  font-family: var(--oke-font-body);
+  font-size: var(--oke-text-body);
+  font-weight: 400;
+  line-height: var(--oke-leading-body);
+  color: var(--oke-ink);
+  max-width: var(--oke-measure);
+}
+
+.oke-small {
+  font-family: var(--oke-font-body);
+  font-size: var(--oke-text-sm);
+  font-weight: 400;
+  line-height: var(--oke-leading-tight);
+  color: var(--oke-ink-muted);
+}
+
+.oke-label {
+  font-family: var(--oke-font-mono);
+  font-size: var(--oke-text-label);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: var(--oke-tracking-meta);
+  text-transform: uppercase;
+  color: var(--oke-ink-muted);
+}
+
+.oke-measure {
+  max-width: var(--oke-measure);
+}
+
+.oke-on-dark.oke-display,
+.oke-on-dark.oke-h1,
+.oke-on-dark.oke-h2,
+.oke-on-dark.oke-h3,
+.oke-on-dark.oke-h4,
+.oke-on-dark.oke-body-lg,
+.oke-on-dark.oke-body {
+  color: var(--oke-dark-ink);
+}
+
+.oke-on-dark.oke-small,
+.oke-on-dark.oke-label {
+  color: var(--oke-dark-muted);
+}

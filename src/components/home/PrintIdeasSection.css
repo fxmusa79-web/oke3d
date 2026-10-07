@@ -1,0 +1,116 @@
+.print-ideas {
+  padding: var(--oke-section-y) var(--oke-gutter);
+  max-width: var(--oke-max-editorial);
+  margin: 0 auto;
+}
+
+.print-ideas__eyebrow {
+  margin: 0 0 var(--oke-space-3);
+  font-family: var(--oke-font-mono);
+  font-size: var(--oke-text-label);
+  letter-spacing: var(--oke-tracking-meta);
+  text-transform: uppercase;
+  color: var(--oke-accent);
+}
+
+.print-ideas__title {
+  margin: 0 0 var(--oke-space-3);
+  font-family: var(--oke-font-display);
+  font-size: var(--oke-text-h2);
+  font-weight: 700;
+  letter-spacing: var(--oke-tracking-tight);
+  line-height: var(--oke-leading-heading);
+  max-width: 18ch;
+}
+
+.print-ideas__lede {
+  margin: 0 0 var(--oke-space-7);
+  max-width: var(--oke-measure);
+  color: var(--oke-ink-muted);
+  line-height: var(--oke-leading-body);
+}
+
+.print-ideas__grid {
+  list-style: none;
+  margin: 0 0 var(--oke-space-7);
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--oke-space-6) var(--oke-space-4);
+}
+
+@media (min-width: 640px) {
+  .print-ideas__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .print-ideas__grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: var(--oke-space-5) var(--oke-space-3);
+  }
+}
+
+.print-ideas__card {
+  min-width: 0;
+}
+
+.print-ideas__media {
+  aspect-ratio: 3 / 4;
+  margin-bottom: var(--oke-space-3);
+  background: transparent;
+  overflow: hidden;
+}
+
+.print-ideas__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  transition: transform var(--oke-dur-medium) var(--oke-ease-product);
+}
+
+.print-ideas__card:hover .print-ideas__media img {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.print-ideas__card h3 {
+  margin: 0 0 var(--oke-space-2);
+  font-family: var(--oke-font-display);
+  font-size: var(--oke-text-h4);
+  font-weight: 700;
+}
+
+.print-ideas__card p {
+  margin: 0;
+  font-size: var(--oke-text-sm);
+  color: var(--oke-ink-muted);
+  line-height: var(--oke-leading-tight);
+}
+
+.print-ideas__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--oke-space-4);
+}
+
+.print-ideas__link {
+  font-family: var(--oke-font-body);
+  font-size: var(--oke-text-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--oke-ink-muted);
+}
+
+.print-ideas__link:hover {
+  color: var(--oke-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .print-ideas__card:hover .print-ideas__media img {
+    transform: none;
+  }
+}

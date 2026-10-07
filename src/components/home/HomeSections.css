@@ -77,7 +77,11 @@
 }
 
 .home-about__copy {
-  max-width: 28rem;
+  max-width: 34rem;
+}
+
+.home-section__lede--follow {
+  margin-top: 0.85rem;
 }
 
 .home-about__title {
@@ -93,6 +97,33 @@
 
 .home-about__actions {
   margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.home-about--lean {
+  padding: var(--oke-section-y-tight, clamp(2.5rem, 5vw, 4rem)) var(--oke-gutter) !important;
+}
+
+.home-about__grid--lean .home-about__card--single {
+  max-width: 18rem;
+  margin-inline: auto;
+  max-height: 20rem;
+}
+
+@media (min-width: 1024px) {
+  .home-about__grid--lean .home-about__copy {
+    grid-column: span 6;
+  }
+
+  .home-about__grid--lean .home-about__card--single {
+    grid-column: 8 / span 4;
+    justify-self: end;
+    margin-inline: 0;
+    max-width: 22rem;
+    max-height: 26rem;
+  }
 }
 
 .home-about__cards {
@@ -125,10 +156,10 @@
   display: block;
   aspect-ratio: 4 / 5;
   max-height: 22rem;
-  background: #ffffff;
-  border: 1px solid rgba(20, 23, 28, 0.05);
-  border-radius: 2px;
-  padding: 2rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 1.25rem;
   box-sizing: border-box;
   overflow: hidden;
   text-decoration: none;
@@ -197,18 +228,18 @@
 .home-explore__media {
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  background: #ffffff;
+  background: transparent;
   padding: 1.25rem;
   box-sizing: border-box;
 }
 
 .home-explore__media.is-studio {
-  background: #ffffff;
+  background: transparent;
 }
 
 .home-explore__media.is-lifestyle {
   aspect-ratio: 4 / 5;
-  background: #ffffff;
+  background: transparent;
 }
 
 .home-explore__card.is-wide .home-explore__media {
@@ -324,8 +355,8 @@
   aspect-ratio: 4 / 5;
   max-height: 22rem;
   overflow: hidden;
-  background: #ffffff;
-  padding: 2rem;
+  background: transparent;
+  padding: 1.25rem;
   box-sizing: border-box;
 }
 
@@ -435,12 +466,12 @@
   aspect-ratio: 4 / 5;
   max-height: 22rem;
   overflow: hidden;
-  border: 1px solid rgba(20, 23, 28, 0.05);
-  border-radius: 2px;
+  border: none;
+  border-radius: 0;
   text-decoration: none;
   color: var(--oke-ink);
-  background: #ffffff;
-  padding: 2rem;
+  background: transparent;
+  padding: 1.25rem;
   box-sizing: border-box;
   scroll-snap-align: start;
 }

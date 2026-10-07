@@ -50,10 +50,10 @@
   aspect-ratio: 4 / 5;
   max-height: 22rem;
   width: 100%;
-  background: #ffffff;
-  border: 1px solid rgba(20, 23, 28, 0.05);
-  border-radius: 2px;
-  padding: 2rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 1.25rem;
   box-sizing: border-box;
   display: flex;
   align-items: center;

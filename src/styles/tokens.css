@@ -1,61 +1,95 @@
-/* OKE3D design tokens — light premium studio foundation.
-   Blue = accent only. Dark sections are intentional bands. */
+/* OKE3D design tokens — single source of truth.
+   Canvas: cream. Dark: intentional stages only. Blue: ≤5% accent. */
 
 :root {
-  /* Light foundation */
-  --oke-bg: #f5f3ef;
-  --oke-bg-warm: #faf8f4;
+  /* —— Color: light canvas —— */
+  --oke-bg: #fafaf6;
+  --oke-bg-warm: #f5f3ef;
   --oke-bg-elevated: #ffffff;
   --oke-surface: #eceae4;
-  --oke-ink: #14171c;
+  --oke-ink: #0a0a0a;
   --oke-ink-muted: #5c6570;
-  --oke-line: rgba(20, 23, 28, 0.1);
-  --oke-line-strong: rgba(20, 23, 28, 0.18);
+  --oke-line: rgba(10, 10, 10, 0.1);
+  --oke-line-strong: rgba(10, 10, 10, 0.18);
 
   /* Accent — filament blue, never page wash */
   --oke-accent: #1570d8;
+  --oke-accent-hover: #1260b8;
   --oke-accent-soft: rgba(21, 112, 216, 0.12);
   --oke-accent-filament: #1a7ef0;
   --oke-mint: #7fb8a0;
 
-  /* Dark band (BBQ / footer) */
-  --oke-dark-bg: #12151a;
-  --oke-dark-elevated: #1a1f27;
-  --oke-dark-ink: #f4f1ea;
+  /* Dark stages (hero bands, product stages, footer) */
+  --oke-dark-bg: #0a0a0a;
+  --oke-dark-elevated: #12151a;
+  --oke-dark-ink: #fafaf6;
   --oke-dark-muted: #9aa3ad;
-  --oke-dark-line: rgba(244, 241, 234, 0.12);
+  --oke-dark-line: rgba(250, 250, 246, 0.12);
 
+  /* Semantic */
   --oke-danger: #d64545;
+  --oke-danger-soft: rgba(214, 69, 69, 0.12);
+  --oke-success: #2f8f5b;
+  --oke-success-soft: rgba(47, 143, 91, 0.12);
+  --oke-warning: #c48a1a;
+  --oke-focus: var(--oke-accent);
+  --oke-focus-ring: 0 0 0 2px var(--oke-bg), 0 0 0 4px var(--oke-accent);
 
-  /* Typography */
+  /* —— Typography families —— */
   --oke-font-display: 'Syne', 'Arial Narrow', sans-serif;
   --oke-font-body: 'Outfit', system-ui, sans-serif;
   --oke-font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
   --oke-tracking-display: -0.035em;
+  --oke-tracking-tight: -0.02em;
   --oke-tracking-meta: 0.14em;
   --oke-leading-display: 1.02;
+  --oke-leading-heading: 1.12;
   --oke-leading-body: 1.55;
+  --oke-leading-tight: 1.35;
 
-  /* Space */
-  --oke-space-1: 0.25rem;
-  --oke-space-2: 0.5rem;
-  --oke-space-3: 0.75rem;
-  --oke-space-4: 1rem;
-  --oke-space-5: 1.5rem;
-  --oke-space-6: 2rem;
-  --oke-space-7: 3rem;
-  --oke-space-8: 4.5rem;
-  --oke-space-9: 7rem;
+  /* Type scale (rem @ 16px root) */
+  --oke-text-display: clamp(3rem, 6vw, 4.5rem); /* ~48–72 */
+  --oke-text-h1: clamp(2.25rem, 4.5vw, 3.25rem); /* ~36–52 */
+  --oke-text-h2: clamp(1.75rem, 3vw, 2.5rem); /* ~28–40 */
+  --oke-text-h3: clamp(1.35rem, 2.2vw, 1.75rem); /* ~22–28 */
+  --oke-text-h4: clamp(1.125rem, 1.5vw, 1.35rem); /* ~18–22 */
+  --oke-text-body-lg: 1.125rem; /* 18 */
+  --oke-text-body: 1rem; /* 16 */
+  --oke-text-sm: 0.875rem; /* 14 */
+  --oke-text-label: 0.75rem; /* 12 */
+  --oke-measure: 38rem; /* ~608px readable line */
 
+  /* —— Spacing (4–128 px) —— */
+  --oke-space-1: 0.25rem; /* 4 */
+  --oke-space-2: 0.5rem; /* 8 */
+  --oke-space-3: 0.75rem; /* 12 */
+  --oke-space-4: 1rem; /* 16 */
+  --oke-space-5: 1.5rem; /* 24 */
+  --oke-space-6: 2rem; /* 32 */
+  --oke-space-7: 3rem; /* 48 */
+  --oke-space-8: 4rem; /* 64 */
+  --oke-space-9: 5rem; /* 80 */
+  --oke-space-10: 6rem; /* 96 */
+  --oke-space-11: 8rem; /* 128 */
+
+  /* Section rhythm */
+  --oke-section-y: clamp(3.5rem, 8vw, 6rem);
+  --oke-section-y-tight: clamp(2.5rem, 5vw, 4rem);
+
+  /* —— Radius —— */
   --oke-radius-xs: 2px;
   --oke-radius-sm: 6px;
   --oke-radius-md: 10px;
+  --oke-radius-lg: 16px;
+  --oke-radius-pill: 999px;
 
-  --oke-shadow-figure: 0 28px 60px rgba(20, 23, 28, 0.14);
-  --oke-shadow-soft: 0 10px 30px rgba(20, 23, 28, 0.08);
-  --oke-shadow-card: 0 1px 0 rgba(20, 23, 28, 0.04);
+  /* —— Shadow (prefer light / none) —— */
+  --oke-shadow-figure: 0 28px 60px rgba(10, 10, 10, 0.14);
+  --oke-shadow-soft: 0 10px 30px rgba(10, 10, 10, 0.08);
+  --oke-shadow-card: 0 1px 0 rgba(10, 10, 10, 0.04);
 
+  /* —— Motion —— */
   --oke-dur-micro: 180ms;
   --oke-dur-small: 360ms;
   --oke-dur-medium: 700ms;
@@ -65,11 +99,35 @@
   --oke-ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
   --oke-ease-product: cubic-bezier(0.22, 1, 0.36, 1);
 
+  /* —— Layout chrome —— */
   --oke-announce-h: 2.35rem;
   --oke-nav-h: 4.1rem;
+  --oke-sticky-cta-h: 4.5rem;
   --oke-gutter: clamp(1rem, 3vw, 2.5rem);
-  --oke-max-editorial: 72rem;
-  --oke-max-page: 92rem;
+  --oke-max-editorial: 72rem; /* ~1152 */
+  --oke-max-page: 92rem; /* ~1472 */
+  --oke-max-narrow: 40rem;
+
+  /* —— Control sizes —— */
+  --oke-control-h-sm: 2.25rem; /* 36 */
+  --oke-control-h-md: 2.75rem; /* 44 */
+  --oke-control-h-lg: 3.25rem; /* 52 */
+  --oke-tap-min: 2.75rem; /* 44 */
+
+  /* —— Z-index ladder —— */
+  --oke-z-header: 40;
+  --oke-z-drawer: 50;
+  --oke-z-sticky: 60;
+  --oke-z-modal: 70;
+  --oke-z-toast: 80;
+
+  /* —— Breakpoints (for JS / documentation; use numeric values in @media) ——
+     sm: 560 · md: 768 · lg: 960 · xl: 1100 · 2xl: 1440 */
+  --oke-bp-sm: 560px;
+  --oke-bp-md: 768px;
+  --oke-bp-lg: 960px;
+  --oke-bp-xl: 1100px;
+  --oke-bp-2xl: 1440px;
 }
 
 @media (prefers-reduced-motion: reduce) {

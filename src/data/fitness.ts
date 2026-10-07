@@ -27,7 +27,7 @@ export const fitnessFigures = [
   },
   {
     id: 'bbq-grillmaster',
-    src: '/products/bbq-edition/bbq-grillmaster.webp',
+    src: '/products/bbq-edition/bbq-grillmaster.png',
     alt: 'OKE BBQ grillmaster',
   },
 ] as const

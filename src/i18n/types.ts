@@ -59,6 +59,14 @@ export type Dictionary = {
     eyebrow: string
     title: string
     lede: string
+    body: string
+  }
+  printIdeas: {
+    eyebrow: string
+    title: string
+    lede: string
+    cta: string
+    secondary: string
   }
   make: {
     eyebrow: string
@@ -156,6 +164,17 @@ export type Dictionary = {
   }
   stickyCta: {
     label: string
+  }
+  floatMenu: {
+    label: string
+    open: string
+    close: string
+    call: string
+    contact: string
+    design: string
+    designSub: string
+    collection: string
+    collectionSub: string
   }
   placeholder: {
     body: string

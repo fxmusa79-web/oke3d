@@ -2,42 +2,98 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import './Button.css'
 
-type Variant = 'primary' | 'secondary' | 'ghost'
-type Size = 'md' | 'sm'
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'ghost'
+export type ButtonSize = 'sm' | 'md' | 'lg'
 
 type Common = {
   children: ReactNode
-  variant?: Variant
-  size?: Size
+  /** `ghost` is accepted as an alias for `tertiary` */
+  variant?: ButtonVariant
+  size?: ButtonSize
+  /** Use on charcoal / dark stages */
+  onDark?: boolean
   className?: string
 }
 
 type ButtonAsButton = Common &
   ButtonHTMLAttributes<HTMLButtonElement> & { to?: undefined }
 
-type ButtonAsLink = Common & { to: string; onClick?: () => void }
+type ButtonAsLink = Common & {
+  to: string
+  onClick?: () => void
+  disabled?: boolean
+}
+
+function resolveVariant(variant: ButtonVariant): 'primary' | 'secondary' | 'tertiary' {
+  return variant === 'ghost' ? 'tertiary' : variant
+}
+
+function btnClass(
+  variant: ButtonVariant,
+  size: ButtonSize,
+  onDark: boolean,
+  className: string,
+) {
+  return [
+    'oke-btn',
+    `oke-btn--${resolveVariant(variant)}`,
+    `oke-btn--${size}`,
+    onDark ? 'oke-btn--on-dark' : '',
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ')
+}
 
 export function Button(props: ButtonAsButton | ButtonAsLink) {
-  const {
-    children,
-    variant = 'primary',
-    size = 'md',
-    className = '',
-    ...rest
-  } = props
-  const classes = `oke-btn oke-btn--${variant} oke-btn--${size} ${className}`.trim()
-
   if ('to' in props && props.to) {
+    const {
+      children,
+      variant = 'primary',
+      size = 'md',
+      onDark = false,
+      className = '',
+      to,
+      onClick,
+      disabled,
+    } = props
+
     return (
-      <Link to={props.to} className={classes} onClick={props.onClick}>
+      <Link
+        to={to}
+        className={btnClass(variant, size, onDark, className)}
+        onClick={(e) => {
+          if (disabled) {
+            e.preventDefault()
+            return
+          }
+          onClick?.()
+        }}
+        aria-disabled={disabled || undefined}
+        tabIndex={disabled ? -1 : undefined}
+      >
         {children}
       </Link>
     )
   }
 
-  const buttonProps = rest as ButtonHTMLAttributes<HTMLButtonElement>
+  const buttonProps = props as ButtonAsButton
+  const {
+    children,
+    variant = 'primary',
+    size = 'md',
+    onDark = false,
+    className = '',
+    type = 'button',
+    ...rest
+  } = buttonProps
+
   return (
-    <button type={buttonProps.type ?? 'button'} className={classes} {...buttonProps}>
+    <button
+      type={type}
+      className={btnClass(variant, size, onDark, className)}
+      {...rest}
+    >
       {children}
     </button>
   )

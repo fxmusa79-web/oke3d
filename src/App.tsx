@@ -6,6 +6,7 @@ import { CollectionPage } from './pages/CollectionPage'
 import { ProductPage } from './pages/ProductPage'
 import { RequestPage } from './pages/RequestPage'
 import { PlaceholderPage } from './pages/PlaceholderPage'
+import { EditionsPage } from './pages/EditionsPage'
 import { BbqEdition } from './components/bbq/BbqEdition'
 import './App.css'
 
@@ -15,10 +16,7 @@ function RoutesTree() {
       <Route element={<SiteShell />}>
         <Route index element={<HomePage />} />
         <Route path="collectie" element={<CollectionPage />} />
-        <Route
-          path="edities"
-          element={<PlaceholderPage titleKey="nav.editions" />}
-        />
+        <Route path="edities" element={<EditionsPage />} />
         <Route path="edities/bbq" element={<BbqEdition />} />
         <Route
           path="op-maat"

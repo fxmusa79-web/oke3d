@@ -2,9 +2,9 @@ import type { Dictionary } from './types'
 
 export const en: Dictionary = {
   meta: {
-    title: 'OKE3D. 3D-printed collectibles & made-to-order prints',
+    title: 'OKE3D — 3D-printed collectibles & custom prints | Netherlands',
     description:
-      'OKE3D makes 3D-printed collectibles, editions and made-to-order prints. From digital idea to physical object.',
+      'OKE3D is a Dutch 3D-print studio for collectibles, editions and made-to-order prints. From figurines to functional objects: digital idea to something you can hold.',
   },
   announce: {
     message: 'Unique 3D prints · Small batches · Made to order',
@@ -31,9 +31,9 @@ export const en: Dictionary = {
   },
   customCta: {
     eyebrow: 'Custom',
-    title: 'Design your own 3D figure.',
-    lede: 'Upload a photo or sketch. We turn it into a collectible in our studio.',
-    cta: 'Start designing →',
+    title: 'Your idea, as a collectible.',
+    lede: 'Upload a photo or sketch. We translate it into a 3D print in the studio.',
+    cta: 'Start design',
     modal: {
       title: 'Your custom OKE',
       close: 'Close',
@@ -60,6 +60,14 @@ export const en: Dictionary = {
     eyebrow: 'About OKE3D',
     title: '3D printing with character.',
     lede: 'From collectibles and special editions to made-to-order prints. We turn digital designs into objects you can hold, from our own studio.',
+    body: 'Every print starts with form, material and detail. We work in small runs with careful finishing — so an object does not just look right, it feels right in the hand.',
+  },
+  printIdeas: {
+    eyebrow: 'Inspiration',
+    title: 'What can you have made?',
+    lede: 'Beyond collectibles we also print functional objects — grinders, cups, stands and organizers. Use these as a starting point for your request.',
+    cta: 'Request your print',
+    secondary: 'Browse the collection',
   },
   make: {
     eyebrow: 'What we make',
@@ -133,19 +141,19 @@ export const en: Dictionary = {
     steps: [
       {
         title: 'Tell us your idea',
-        body: 'File, photo, sketch or a short description.',
+        body: 'Send a file, photo, sketch or short description. The clearer the start, the faster we can assess what’s possible.',
       },
       {
         title: 'We review what’s possible',
-        body: 'Technique, size and feasibility.',
+        body: 'We check technique, size, material preference and feasibility — then reply with a clear proposal.',
       },
       {
         title: 'We make it',
-        body: 'After approval, your object goes into the printer.',
+        body: 'After approval, your object goes into the printer. We watch layers, supports and finish.',
       },
       {
         title: 'Your idea becomes real',
-        body: 'Ready to hold.',
+        body: 'You receive a physical object: ready to display, gift, or hold.',
       },
     ],
   },
@@ -211,6 +219,17 @@ export const en: Dictionary = {
   },
   stickyCta: {
     label: 'Request a print',
+  },
+  floatMenu: {
+    label: 'Quick actions',
+    open: 'Open menu',
+    close: 'Close menu',
+    call: 'Call',
+    contact: 'Go to contact',
+    design: 'Start your design',
+    designSub: 'Custom print request',
+    collection: 'Collection',
+    collectionSub: 'Browse all figures',
   },
   placeholder: {
     body: 'This page will be expanded in the next phase.',

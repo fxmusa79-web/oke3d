@@ -7,9 +7,9 @@
 
 .oke-gallery__main {
   width: 100%;
-  border: 1px solid var(--oke-line);
+  border: none;
   overflow: hidden;
-  background: #ffffff;
+  background: transparent;
 }
 
 .oke-gallery__frame {
@@ -21,15 +21,15 @@
 }
 
 .oke-gallery__frame.is-studio {
-  background: #ffffff;
+  background: transparent;
 }
 
 .oke-gallery__frame.is-exploded {
-  background: #0a0a0a;
+  background: transparent;
 }
 
 .oke-gallery__frame.is-lifestyle {
-  background: var(--oke-surface);
+  background: transparent;
 }
 
 .oke-gallery__frame img {
@@ -104,14 +104,14 @@
   aspect-ratio: 4 / 5;
   padding: 0;
   border: 1px solid var(--oke-line);
-  background: #ffffff;
+  background: transparent;
   overflow: hidden;
   cursor: pointer;
   opacity: 0.55;
 }
 
 .oke-gallery__thumb.is-exploded {
-  background: #0a0a0a;
+  background: transparent;
 }
 
 .oke-gallery__thumb.is-active {

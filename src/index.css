@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 @import './styles/tokens.css';
+@import './styles/typography.css';
 
 *,
 *::before,
@@ -16,7 +17,7 @@ body {
   margin: 0;
   min-width: 320px;
   font-family: var(--oke-font-body);
-  font-size: 16px;
+  font-size: var(--oke-text-body);
   line-height: var(--oke-leading-body);
   color: var(--oke-ink);
   background: var(--oke-bg);
@@ -33,9 +34,42 @@ body {
 }
 
 h1,
+h2,
+h3,
+h4 {
+  font-family: var(--oke-font-display);
+  letter-spacing: var(--oke-tracking-tight);
+  color: var(--oke-ink);
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--oke-text-h1);
+  font-weight: 800;
+  line-height: var(--oke-leading-heading);
+  letter-spacing: var(--oke-tracking-display);
+}
+
 h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.12;
+  font-size: var(--oke-text-h2);
+  font-weight: 700;
+  line-height: var(--oke-leading-heading);
+}
+
+h3 {
+  font-size: var(--oke-text-h3);
+  font-weight: 700;
+  line-height: var(--oke-leading-tight);
+}
+
+h4 {
+  font-size: var(--oke-text-h4);
+  font-weight: 600;
+  line-height: var(--oke-leading-tight);
+}
+
+p {
+  margin: 0;
 }
 
 img {
@@ -47,12 +81,40 @@ a {
   color: inherit;
 }
 
+button {
+  font: inherit;
+}
+
 :focus-visible {
-  outline: 2px solid var(--oke-accent);
+  outline: 2px solid var(--oke-focus);
   outline-offset: 3px;
 }
 
 ::selection {
   background: var(--oke-accent-soft);
   color: var(--oke-ink);
+}
+
+/* Shared layout helpers (Phase A — section system expands in Phase B) */
+.oke-container {
+  width: 100%;
+  max-width: var(--oke-max-editorial);
+  margin-inline: auto;
+  padding-inline: var(--oke-gutter);
+}
+
+.oke-container--page {
+  max-width: var(--oke-max-page);
+}
+
+.oke-container--narrow {
+  max-width: var(--oke-max-narrow);
+}
+
+.oke-section {
+  padding-block: var(--oke-section-y);
+}
+
+.oke-section--tight {
+  padding-block: var(--oke-section-y-tight);
 }

@@ -3,23 +3,22 @@
 .oke-hero {
   position: relative;
   min-height: 100svh;
-  background: #fafaf6;
+  background: var(--oke-bg);
   overflow: hidden;
   isolation: isolate;
-  /* px-6 py-12 */
-  padding: 3rem 1.5rem;
+  padding: 2.5rem 1.5rem;
   box-sizing: border-box;
 }
 
 .oke-hero__grid {
   position: relative;
   z-index: 1;
-  max-width: 92rem;
+  max-width: 80rem;
   margin: 0 auto;
-  min-height: calc(100svh - 6rem);
+  min-height: calc(100svh - 5rem);
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1.75rem;
   align-items: center;
   box-sizing: border-box;
   width: 100%;
@@ -30,7 +29,7 @@
   position: relative;
   z-index: 2;
   min-width: 0;
-  max-width: 40rem;
+  max-width: 34rem;
   /* Optical room so ultra-bold glyphs never clip left */
   padding-left: 0.4rem;
   padding-right: 0.25rem;
@@ -39,9 +38,9 @@
 
 .oke-hero__eyebrow {
   display: block;
-  margin: 0 0 1.25rem;
+  margin: 0 0 1rem;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: clamp(0.62rem, 2.2vw, 0.75rem);
+  font-size: clamp(0.6rem, 1.6vw, 0.7rem);
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -51,13 +50,13 @@
 }
 
 .oke-hero__title {
-  margin: 0 0 1.25rem;
+  margin: 0 0 1rem;
   max-width: 14ch;
   font-family: 'Inter Tight', system-ui, sans-serif;
   font-weight: 900;
-  font-size: clamp(2.5rem, 6vw, 4.8rem);
-  line-height: 0.9;
-  letter-spacing: -0.04em;
+  font-size: clamp(2.1rem, 4.2vw, 3.55rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
   color: #111;
   overflow: visible;
   /* Negative tracking bleeds left ink past the box — pad so overflow:hidden
@@ -83,10 +82,10 @@
 }
 
 .oke-hero__lede {
-  margin: 0 0 1.75rem;
-  max-width: 28rem;
+  margin: 0 0 1.35rem;
+  max-width: 26rem;
   font-family: 'Inter Tight', system-ui, sans-serif;
-  font-size: 1.125rem;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
   line-height: 1.55;
   color: #4b5563;
 }
@@ -101,9 +100,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 2rem;
+  padding: 0.85rem 1.55rem;
   font-family: 'Inter Tight', system-ui, sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -129,21 +128,21 @@
   z-index: 10;
   min-width: 0;
   width: 100%;
-  max-width: 32rem;
+  max-width: 24rem;
   margin-inline: auto;
   box-sizing: border-box;
 }
 
 @media (min-width: 1024px) {
-  /* lg:px-16 py-12 */
   .oke-hero {
-    padding: 3rem 4rem;
+    padding: 2.75rem 3.5rem 2.5rem;
   }
 
   .oke-hero__grid {
     grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: 2.5rem;
-    min-height: calc(100svh - 6rem);
+    gap: 3rem;
+    min-height: calc(100svh - 5.5rem);
+    align-items: center;
   }
 
   .oke-hero__copy {
@@ -153,25 +152,79 @@
 
   .oke-hero__stage {
     grid-column: span 6;
-    max-width: 34rem;
+    max-width: min(26rem, 38vw);
     margin-inline: 0 auto;
     justify-self: end;
     width: 100%;
   }
 }
 
+@media (min-width: 1400px) {
+  .oke-hero__stage {
+    max-width: min(28rem, 34vw);
+  }
+}
+
 @media (max-width: 1023px) {
   .oke-hero {
-    padding: 2.75rem 1.5rem 3rem;
+    padding: 1.75rem 1.25rem 2rem;
+    min-height: auto;
+  }
+
+  .oke-hero__grid {
+    min-height: 0;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .oke-hero__copy {
+    max-width: 100%;
+    padding-left: 0.15rem;
+  }
+
+  .oke-hero__eyebrow {
+    margin-bottom: 0.75rem;
+    font-size: 0.62rem;
   }
 
   .oke-hero__title {
-    max-width: 11ch;
+    max-width: 12ch;
+    margin-bottom: 0.75rem;
     letter-spacing: -0.03em;
+    font-size: clamp(1.85rem, 7.2vw, 2.35rem);
+    line-height: 1.02;
+  }
+
+  .oke-hero__lede {
+    margin-bottom: 1.1rem;
+    font-size: 0.95rem;
+    max-width: 28rem;
+  }
+
+  .oke-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.55rem;
+  }
+
+  .oke-hero__btn {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+  }
+
+  /* Secondary CTA quieter on mobile — primary path is Collectie */
+  .oke-hero__btn--secondary {
+    order: 2;
+    background: transparent;
+    border-color: transparent;
+    color: var(--oke-ink-muted, #5c6570);
+    padding-inline: 0.25rem;
+    letter-spacing: 0.06em;
   }
 
   .oke-hero__stage {
-    max-width: min(100%, 22rem);
+    max-width: min(100%, 16rem);
+    margin-top: 0.25rem;
   }
 }
 

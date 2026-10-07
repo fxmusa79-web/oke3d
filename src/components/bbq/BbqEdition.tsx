@@ -365,7 +365,7 @@ export function BbqEdition() {
             label: t.edition.cards.apron,
           },
           {
-            src: '/products/bbq-edition/bbq-grillmaster.webp',
+            src: '/products/bbq-edition/bbq-grillmaster.png',
             label: t.edition.cards.grillmaster,
           },
         ].map((item) => (

@@ -2,9 +2,9 @@ import type { Dictionary } from './types'
 
 export const nl: Dictionary = {
   meta: {
-    title: 'OKE3D. 3D-geprinte collectibles & prints op aanvraag',
+    title: 'OKE3D — 3D-geprinte collectibles & custom prints | Nederland',
     description:
-      'OKE3D maakt 3D-geprinte collectibles, edities en prints op aanvraag. Van digitaal idee naar echt object.',
+      'OKE3D is een Nederlandse 3D-printstudio voor collectibles, edities en prints op aanvraag. Van figurines tot functionele objecten: van digitaal idee naar tastbaar object.',
   },
   announce: {
     message: 'Unieke 3D-prints · Kleine oplages · Ook op aanvraag',
@@ -31,9 +31,9 @@ export const nl: Dictionary = {
   },
   customCta: {
     eyebrow: 'Op maat',
-    title: 'Ontwerp je eigen 3D poppetje.',
-    lede: 'Upload een foto of schets. We maken er een collectible van in onze studio.',
-    cta: 'Start ontwerpen →',
+    title: 'Jouw idee, als collectible.',
+    lede: 'Upload een foto of schets. Wij vertalen het in de studio naar een 3D-print.',
+    cta: 'Start ontwerp',
     modal: {
       title: 'Jouw custom OKE',
       close: 'Sluiten',
@@ -60,6 +60,14 @@ export const nl: Dictionary = {
     eyebrow: 'Over OKE3D',
     title: '3D-printen met karakter.',
     lede: 'Van collectibles en bijzondere edities tot prints op aanvraag. We maken digitale ontwerpen tastbaar, in onze eigen studio.',
+    body: 'Elke print begint bij vorm, materiaal en detail. We werken in kleine oplages, met oog voor afwerking — zodat een object niet alleen goed staat, maar ook goed voelt in de hand.',
+  },
+  printIdeas: {
+    eyebrow: 'Inspiratie',
+    title: 'Wat kun je laten maken?',
+    lede: 'Naast collectibles printen we ook functionele objecten — van grinders en bekers tot stands en organizers. Gebruik dit als startpunt voor jouw aanvraag.',
+    cta: 'Vraag jouw print aan',
+    secondary: 'Naar de collectie',
   },
   make: {
     eyebrow: 'Wat we maken',
@@ -133,19 +141,19 @@ export const nl: Dictionary = {
     steps: [
       {
         title: 'Vertel ons je idee',
-        body: 'Bestand, foto, schets of korte omschrijving.',
+        body: 'Stuur een bestand, foto, schets of korte omschrijving. Hoe duidelijker je start, hoe sneller we kunnen inschatten wat mogelijk is.',
       },
       {
         title: 'We bekijken de mogelijkheden',
-        body: 'Techniek, formaat en haalbaarheid.',
+        body: 'We checken techniek, formaat, materiaalvoorkeur en haalbaarheid — en komen terug met een helder voorstel.',
       },
       {
         title: 'We maken het',
-        body: 'Na akkoord gaat je object de printer in.',
+        body: 'Na akkoord gaat je object de printer in. We bewaken lagen, steunstructuur en afwerking.',
       },
       {
         title: 'Jouw idee wordt echt',
-        body: 'Klaar om vast te houden.',
+        body: 'Je ontvangt een fysiek object: klaar om neer te zetten, cadeau te doen of vast te houden.',
       },
     ],
   },
@@ -211,6 +219,17 @@ export const nl: Dictionary = {
   },
   stickyCta: {
     label: 'Laat iets maken',
+  },
+  floatMenu: {
+    label: 'Snelle acties',
+    open: 'Menu openen',
+    close: 'Menu sluiten',
+    call: 'Bellen',
+    contact: 'Naar contact',
+    design: 'Maak je ontwerp',
+    designSub: 'Custom print aanvraag',
+    collection: 'Collectie',
+    collectionSub: 'Bekijk alle figuren',
   },
   placeholder: {
     body: 'Deze pagina wordt in de volgende fase verder uitgewerkt.',

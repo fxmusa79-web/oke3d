@@ -16,7 +16,7 @@ const FIGURES = [
   {
     id: 'black-fitness-kettlebell',
     src: '/assets/dark/black-fitness-kettlebell.png',
-    alt: 'OKE black fitness kettlebell',
+    alt: 'OKE black fitness kettlebell collectible',
   },
   {
     id: 'winter-single',
@@ -26,12 +26,13 @@ const FIGURES = [
   {
     id: 'bbq-apron',
     src: '/assets/dark/bbq-apron.png',
-    alt: 'OKE BBQ apron edition',
+    alt: 'OKE BBQ apron edition collectible',
   },
 ] as const
 
 export function HeroFigureCarousel() {
   const rootRef = useRef<HTMLDivElement>(null)
+  const stageRef = useRef<HTMLDivElement>(null)
   const swiperRef = useRef<SwiperType | null>(null)
 
   const animateSlideIn = (slideEl: HTMLElement | null) => {
@@ -40,15 +41,21 @@ export function HeroFigureCarousel() {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     if (reduced) {
-      if (figure) gsap.set(figure, { clearProps: 'all', opacity: 1, scale: 1 })
+      if (figure) gsap.set(figure, { clearProps: 'all', opacity: 1 })
       return
     }
 
     if (figure) {
       gsap.fromTo(
         figure,
-        { opacity: 0.35, scale: 0.96 },
-        { opacity: 1, scale: 1, duration: 0.7, ease: 'power3.out' },
+        { opacity: 0.2, filter: 'blur(4px)' },
+        {
+          opacity: 1,
+          filter:
+            'drop-shadow(0 4px 8px rgba(10, 10, 10, 0.12)) drop-shadow(0 22px 40px rgba(10, 10, 10, 0.28)) drop-shadow(-10px 8px 24px rgba(21, 112, 216, 0.08))',
+          duration: 0.75,
+          ease: 'power3.out',
+        },
       )
     }
   }
@@ -80,77 +87,104 @@ export function HeroFigureCarousel() {
 
   useEffect(() => {
     const root = rootRef.current
-    if (!root) return
+    const stage = stageRef.current
+    if (!root || !stage) return
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const onEnter = () => swiperRef.current?.autoplay?.stop()
-    const onLeave = () => swiperRef.current?.autoplay?.start()
+    const onLeaveAuto = () => swiperRef.current?.autoplay?.start()
+
     root.addEventListener('pointerenter', onEnter)
-    root.addEventListener('pointerleave', onLeave)
+    root.addEventListener('pointerleave', onLeaveAuto)
+
+    if (reduced) {
+      return () => {
+        root.removeEventListener('pointerenter', onEnter)
+        root.removeEventListener('pointerleave', onLeaveAuto)
+      }
+    }
+
+    const onMove = (e: PointerEvent) => {
+      const rect = root.getBoundingClientRect()
+      const nx = (e.clientX - rect.left) / rect.width - 0.5
+      const ny = (e.clientY - rect.top) / rect.height - 0.5
+      root.classList.add('is-tilting')
+      stage.style.transform = `rotateX(${6 - ny * 7}deg) rotateY(${-8 + nx * 14}deg) translateZ(8px)`
+    }
+
+    const onLeaveTilt = () => {
+      root.classList.remove('is-tilting')
+      stage.style.transform = ''
+    }
+
+    root.addEventListener('pointermove', onMove)
+    root.addEventListener('pointerleave', onLeaveTilt)
+
     return () => {
       root.removeEventListener('pointerenter', onEnter)
-      root.removeEventListener('pointerleave', onLeave)
+      root.removeEventListener('pointerleave', onLeaveAuto)
+      root.removeEventListener('pointermove', onMove)
+      root.removeEventListener('pointerleave', onLeaveTilt)
     }
   }, [])
 
   return (
     <div ref={rootRef} className="hero-figure">
       <div className="hero-figure__card">
-        <Swiper
-          className="hero-figure__swiper"
-          modules={[Autoplay, EffectFade, Pagination]}
-          effect="fade"
-          fadeEffect={{ crossFade: true }}
-          speed={650}
-          loop
-          grabCursor
-          simulateTouch
-          allowTouchMove
-          touchRatio={1.2}
-          resistanceRatio={0.65}
-          autoplay={{
-            delay: 4000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          pagination={{
-            el: '.hero-figure__pagination',
-            clickable: true,
-            bulletClass: 'hero-figure__dot',
-            bulletActiveClass: 'is-active',
-          }}
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper
-            swiper.autoplay?.start()
-            animateSlideIn(swiper.slides[swiper.activeIndex] as HTMLElement)
-          }}
-          onSlideChange={(swiper) => {
-            animateSlideIn(swiper.slides[swiper.activeIndex] as HTMLElement)
-          }}
-        >
-          {FIGURES.map((figure, i) => (
-            <SwiperSlide key={figure.id}>
-              <div className="hero-figure__frame">
-                <img
-                  className="hero-figure__img"
-                  src={figure.src}
-                  alt={figure.alt}
-                  width={900}
-                  height={1125}
-                  decoding="async"
-                  fetchPriority={i === 0 ? 'high' : 'low'}
-                  draggable={false}
-                />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <div ref={stageRef} className="hero-figure__stage">
+          <Swiper
+            className="hero-figure__swiper"
+            modules={[Autoplay, EffectFade, Pagination]}
+            effect="fade"
+            fadeEffect={{ crossFade: true }}
+            speed={700}
+            loop
+            grabCursor
+            simulateTouch
+            allowTouchMove
+            touchRatio={1.2}
+            resistanceRatio={0.65}
+            autoplay={{
+              delay: 4200,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            pagination={{
+              el: '.hero-figure__pagination',
+              clickable: true,
+              bulletClass: 'hero-figure__dot',
+              bulletActiveClass: 'is-active',
+            }}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper
+              swiper.autoplay?.start()
+              animateSlideIn(swiper.slides[swiper.activeIndex] as HTMLElement)
+            }}
+            onSlideChange={(swiper) => {
+              animateSlideIn(swiper.slides[swiper.activeIndex] as HTMLElement)
+            }}
+          >
+            {FIGURES.map((figure, i) => (
+              <SwiperSlide key={figure.id}>
+                <div className="hero-figure__frame">
+                  <img
+                    className="hero-figure__img"
+                    src={figure.src}
+                    alt={figure.alt}
+                    width={900}
+                    height={1125}
+                    decoding="async"
+                    fetchPriority={i === 0 ? 'high' : 'low'}
+                    draggable={false}
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
 
-        {/* Pills live on the card shell so they stay inside and never clip */}
-        <span className="hero-figure__pill hero-figure__pill--a">
-          Kleine oplages
-        </span>
-        <span className="hero-figure__pill hero-figure__pill--b">
-          Op aanvraag
-        </span>
+        <span className="hero-figure__pill hero-figure__pill--a">Kleine oplages</span>
+        <span className="hero-figure__pill hero-figure__pill--b">Op aanvraag</span>
       </div>
 
       <div className="hero-figure__pagination" aria-label="Hero figures" />

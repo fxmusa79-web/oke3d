@@ -6,7 +6,7 @@ import './HomeSections.css'
 
 export function FeaturedProducts() {
   const { t } = useI18n()
-  const items = featuredProducts(8)
+  const items = featuredProducts(4)
 
   return (
     <section className="home-section" id="collectie" aria-labelledby="featured-title">

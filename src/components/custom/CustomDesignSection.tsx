@@ -1,36 +1,41 @@
 import { useRef, useState } from 'react'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import { useI18n } from '../../i18n/useI18n'
+import { Button } from '../ui/Button'
 import { CustomDesignModal } from './CustomDesignModal'
 import './CustomDesignSection.css'
 
-gsap.registerPlugin(useGSAP)
+gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 export function CustomDesignSection() {
   const { t } = useI18n()
   const rootRef = useRef<HTMLElement>(null)
-  const btnRef = useRef<HTMLButtonElement>(null)
   const [open, setOpen] = useState(false)
 
   useGSAP(
     () => {
-      const btn = btnRef.current
-      if (!btn) return
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
       if (reduced) return
-
-      const enter = () =>
-        gsap.to(btn, { scale: 1.04, duration: 0.28, ease: 'power2.out', overwrite: 'auto' })
-      const leave = () =>
-        gsap.to(btn, { scale: 1, duration: 0.28, ease: 'power2.out', overwrite: 'auto' })
-
-      btn.addEventListener('pointerenter', enter)
-      btn.addEventListener('pointerleave', leave)
-      return () => {
-        btn.removeEventListener('pointerenter', enter)
-        btn.removeEventListener('pointerleave', leave)
-      }
+      const el = rootRef.current
+      if (!el) return
+      gsap.fromTo(
+        el.querySelectorAll('.custom-design__reveal'),
+        { opacity: 0, y: 18 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.08,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            once: true,
+          },
+        },
+      )
     },
     { scope: rootRef },
   )
@@ -43,24 +48,22 @@ export function CustomDesignSection() {
         id="op-maat"
         aria-labelledby="custom-design-title"
       >
-        <div className="custom-design__panel">
-          <div className="custom-design__copy">
-            <p className="custom-design__eyebrow">{t.customCta.eyebrow}</p>
-            <h2 id="custom-design-title" className="custom-design__title">
-              {t.customCta.title}
-            </h2>
-            <p className="custom-design__lede">{t.customCta.lede}</p>
-          </div>
-
-          <div className="custom-design__action">
-            <button
-              ref={btnRef}
-              type="button"
-              className="custom-design__btn"
-              onClick={() => setOpen(true)}
-            >
-              {t.customCta.cta}
-            </button>
+        <div className="custom-design__inner">
+          <p className="custom-design__eyebrow custom-design__reveal">
+            {t.customCta.eyebrow}
+          </p>
+          <div className="custom-design__row">
+            <div className="custom-design__copy">
+              <h2 id="custom-design-title" className="custom-design__title custom-design__reveal">
+                {t.customCta.title}
+              </h2>
+              <p className="custom-design__lede custom-design__reveal">{t.customCta.lede}</p>
+            </div>
+            <div className="custom-design__action custom-design__reveal">
+              <Button type="button" variant="primary" onClick={() => setOpen(true)}>
+                {t.customCta.cta}
+              </Button>
+            </div>
           </div>
         </div>
       </section>

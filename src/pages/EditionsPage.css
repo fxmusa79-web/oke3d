@@ -1,0 +1,67 @@
+.oke-editions-page {
+  padding: clamp(2.5rem, 7vh, 4rem) var(--oke-gutter) clamp(4rem, 10vh, 6rem);
+  max-width: var(--oke-max-editorial);
+  margin: 0 auto;
+}
+
+.oke-editions-page__eyebrow {
+  margin: 0 0 var(--oke-space-3);
+  font-family: var(--oke-font-mono);
+  font-size: var(--oke-text-label);
+  letter-spacing: var(--oke-tracking-meta);
+  text-transform: uppercase;
+  color: var(--oke-ink-muted);
+}
+
+.oke-editions-page__intro h1 {
+  margin: 0 0 var(--oke-space-3);
+}
+
+.oke-editions-page__lede {
+  margin: 0 0 var(--oke-space-7);
+  max-width: var(--oke-measure);
+  color: var(--oke-ink-muted);
+}
+
+.oke-editions-page__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--oke-space-5);
+  margin-bottom: var(--oke-space-7);
+}
+
+@media (min-width: 768px) {
+  .oke-editions-page__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--oke-space-4);
+  }
+}
+
+.oke-editions-page__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--oke-space-3);
+  text-decoration: none;
+  color: var(--oke-ink);
+  min-width: 0;
+}
+
+.oke-editions-page__card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  background: transparent;
+}
+
+.oke-editions-page__card span {
+  font-family: var(--oke-font-mono);
+  font-size: var(--oke-text-label);
+  letter-spacing: var(--oke-tracking-meta);
+  text-transform: uppercase;
+  color: var(--oke-ink-muted);
+}
+
+.oke-editions-page__actions {
+  display: flex;
+  gap: var(--oke-space-3);
+}

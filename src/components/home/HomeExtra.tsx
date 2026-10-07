@@ -4,6 +4,8 @@ import { assets } from '../../data/assets'
 import { fitnessFigures } from '../../data/fitness'
 import { useI18n } from '../../i18n/useI18n'
 import { HorizontalScroller } from './HorizontalScroller'
+import { CountUpStat } from './CountUpStat'
+import { PrintLayersBg } from './PrintLayersBg'
 import './HomeSections.css'
 
 export function AboutSection() {
@@ -11,6 +13,7 @@ export function AboutSection() {
 
   return (
     <section className="home-about home-about--lean" id="over-oke3d" aria-labelledby="about-title">
+      <PrintLayersBg />
       <div className="home-about__grid home-about__grid--lean">
         <div className="home-about__copy">
           <p className="home-section__eyebrow">{t.about.eyebrow}</p>
@@ -19,6 +22,21 @@ export function AboutSection() {
           </h2>
           <p className="home-section__lede">{t.about.lede}</p>
           <p className="home-section__lede home-section__lede--follow">{t.about.body}</p>
+          <p className="home-section__lede home-section__lede--follow home-about__craft">
+            {t.about.craft}
+          </p>
+
+          <div className="home-about__stats" aria-label="Studio stats">
+            {t.about.stats.map((stat) => (
+              <CountUpStat
+                key={stat.label}
+                value={stat.value}
+                suffix={stat.suffix}
+                label={stat.label}
+              />
+            ))}
+          </div>
+
           <div className="home-about__actions">
             <Button to="/collectie">{t.nav.cta}</Button>
             <Button to="/edities" variant="secondary">
@@ -75,7 +93,7 @@ export function CustomSection() {
       title: t.custom.cards.customDolls.title,
       body: t.custom.cards.customDolls.body,
       image: assets.custom.monochromeCouple,
-      to: '/op-maat',
+      to: '/op-maat', // opens custom popup flow
       alt: 'OKE monochrome duo collectibles',
     },
     {

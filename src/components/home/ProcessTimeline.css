@@ -1,0 +1,131 @@
+.process-tl {
+  position: relative;
+  /* Tall scroll runway for progressive reveal */
+  min-height: 240vh;
+  padding: 0 var(--oke-gutter);
+}
+
+.process-tl__sticky {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: clamp(3rem, 8vh, 5rem) 0;
+  box-sizing: border-box;
+}
+
+.process-tl__layout {
+  width: min(100%, var(--oke-max-editorial, 72rem));
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .process-tl__layout {
+    grid-template-columns: minmax(12rem, 0.9fr) minmax(0, 1.2fr);
+    gap: 3.5rem;
+    align-items: center;
+  }
+}
+
+.process-tl__eyebrow {
+  margin: 0 0 0.75rem;
+  font-family: var(--oke-font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oke-accent);
+}
+
+.process-tl__title {
+  margin: 0;
+  font-family: var(--oke-font-display);
+  font-size: clamp(2rem, 4.5vw, 3.1rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  max-width: 10ch;
+}
+
+.process-tl__track {
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+.process-tl__line {
+  position: absolute;
+  left: 0.35rem;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  width: 2px;
+  background: rgba(10, 10, 10, 0.12);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.process-tl__line-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: top center;
+  background: linear-gradient(180deg, #0a0a0a 0%, #1570d8 100%);
+  will-change: transform;
+}
+
+.process-tl__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(2rem, 6vh, 3.25rem);
+}
+
+.process-tl__step h3 {
+  margin: 0.35rem 0 0.5rem;
+  font-family: var(--oke-font-display);
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+}
+
+.process-tl__step p {
+  margin: 0;
+  max-width: 34rem;
+  color: var(--oke-ink-muted);
+  line-height: 1.6;
+}
+
+.process-tl__num {
+  display: inline-block;
+  font-family: var(--oke-font-mono);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  transform-origin: left center;
+  will-change: transform, color;
+}
+
+@media (max-width: 899px) {
+  .process-tl {
+    min-height: 0;
+  }
+
+  .process-tl__sticky {
+    position: relative;
+    min-height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-tl {
+    min-height: 0;
+  }
+
+  .process-tl__sticky {
+    position: relative;
+  }
+
+  .process-tl__line-fill {
+    transform: scaleY(1) !important;
+  }
+}

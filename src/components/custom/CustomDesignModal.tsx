@@ -1,17 +1,24 @@
 import {
+  lazy,
+  Suspense,
   useEffect,
   useId,
   useRef,
   useState,
   type ChangeEvent,
   type DragEvent,
-  type PointerEvent as ReactPointerEvent,
 } from 'react'
 import { createPortal } from 'react-dom'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { useI18n } from '../../i18n/useI18n'
+import { ConfettiBurst } from './ConfettiBurst'
+import { OkePhotoMockup } from './OkePhotoMockup'
 import './CustomDesignModal.css'
+
+const CustomPhoto3DPreview = lazy(() =>
+  import('./CustomPhoto3DPreview').then((m) => ({ default: m.CustomPhoto3DPreview })),
+)
 
 gsap.registerPlugin(useGSAP)
 
@@ -22,8 +29,9 @@ type Props = {
 
 type Status = 'idle' | 'sending' | 'ok' | 'error'
 
-/** Steps 1–3 interactive; step 4 = success after submit */
+/** Interactive form steps; step 4 = success */
 const FORM_STEPS = 3
+const STEPPER_LABELS = ['Upload', '3D', 'Details', 'Klaar'] as const
 
 async function fileToBase64(file: File): Promise<string> {
   const buffer = await file.arrayBuffer()
@@ -41,15 +49,6 @@ export function CustomDesignModal({ open, onClose }: Props) {
   const titleId = useId()
   const dialogRef = useRef<HTMLDivElement>(null)
   const panelRef = useRef<HTMLDivElement>(null)
-  const tiltImgRef = useRef<HTMLImageElement>(null)
-  const rotYRef = useRef(0)
-  const rotXRef = useRef(0)
-  const dragRef = useRef<{ active: boolean; x: number; y: number }>({
-    active: false,
-    x: 0,
-    y: 0,
-  })
-
   const [step, setStep] = useState(1)
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
   const [file, setFile] = useState<File | null>(null)
@@ -59,6 +58,7 @@ export function CustomDesignModal({ open, onClose }: Props) {
   const [status, setStatus] = useState<Status>('idle')
   const [error, setError] = useState('')
   const [draggingFile, setDraggingFile] = useState(false)
+  const [confetti, setConfetti] = useState(false)
 
   useEffect(() => {
     if (!open) return
@@ -84,8 +84,7 @@ export function CustomDesignModal({ open, onClose }: Props) {
       setDescription('')
       setFile(null)
       setDraggingFile(false)
-      rotYRef.current = 0
-      rotXRef.current = 0
+      setConfetti(false)
       if (previewUrl) URL.revokeObjectURL(previewUrl)
       setPreviewUrl(null)
     }
@@ -97,13 +96,13 @@ export function CustomDesignModal({ open, onClose }: Props) {
       if (!open || !dialogRef.current) return
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
       if (reduced) {
-        gsap.set(dialogRef.current, { opacity: 1, y: 0, scale: 1 })
+        gsap.set(dialogRef.current, { opacity: 1 })
         return
       }
       gsap.fromTo(
         dialogRef.current,
-        { opacity: 0, y: 16, scale: 0.98 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: 'power3.out' },
+        { opacity: 0 },
+        { opacity: 1, duration: 0.35, ease: 'power2.out' },
       )
     },
     { dependencies: [open] },
@@ -119,7 +118,7 @@ export function CustomDesignModal({ open, onClose }: Props) {
       }
       gsap.fromTo(
         panelRef.current,
-        { opacity: 0, y: 10 },
+        { opacity: 0, y: 14 },
         { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' },
       )
     },
@@ -131,6 +130,7 @@ export function CustomDesignModal({ open, onClose }: Props) {
     if (previewUrl) URL.revokeObjectURL(previewUrl)
     setFile(next)
     setPreviewUrl(URL.createObjectURL(next))
+    setConfetti(true)
   }
 
   const onFile = (e: ChangeEvent<HTMLInputElement>) => {
@@ -141,41 +141,6 @@ export function CustomDesignModal({ open, onClose }: Props) {
     e.preventDefault()
     setDraggingFile(false)
     applyFile(e.dataTransfer.files?.[0])
-  }
-
-  const applyTilt = () => {
-    const img = tiltImgRef.current
-    if (!img) return
-    img.style.transform = `rotateY(${rotYRef.current}deg) rotateX(${rotXRef.current}deg)`
-  }
-
-  const onTiltPointerDown = (e: ReactPointerEvent<HTMLDivElement>) => {
-    const stage = e.currentTarget
-    stage.setPointerCapture(e.pointerId)
-    dragRef.current = { active: true, x: e.clientX, y: e.clientY }
-
-    const onMove = (ev: PointerEvent) => {
-      if (!dragRef.current.active) return
-      const dx = ev.clientX - dragRef.current.x
-      const dy = ev.clientY - dragRef.current.y
-      dragRef.current.x = ev.clientX
-      dragRef.current.y = ev.clientY
-      rotYRef.current += dx * 0.5
-      rotXRef.current = Math.max(-24, Math.min(24, rotXRef.current - dy * 0.35))
-      applyTilt()
-    }
-
-    const onUp = () => {
-      dragRef.current.active = false
-      stage.releasePointerCapture(e.pointerId)
-      stage.removeEventListener('pointermove', onMove)
-      stage.removeEventListener('pointerup', onUp)
-      stage.removeEventListener('pointercancel', onUp)
-    }
-
-    stage.addEventListener('pointermove', onMove)
-    stage.addEventListener('pointerup', onUp)
-    stage.addEventListener('pointercancel', onUp)
   }
 
   const canNext =
@@ -205,6 +170,7 @@ export function CustomDesignModal({ open, onClose }: Props) {
       if (!res.ok) throw new Error('fail')
       setStatus('ok')
       setStep(4)
+      setConfetti(true)
     } catch {
       try {
         const key = 'oke3d-custom-requests'
@@ -216,14 +182,9 @@ export function CustomDesignModal({ open, onClose }: Props) {
           at: new Date().toISOString(),
         })
         localStorage.setItem(key, JSON.stringify(prev))
-        console.log('custom-request (localStorage fallback)', {
-          name: payload.name,
-          email: payload.email,
-          description: payload.description,
-          hasImage: Boolean(payload.imageBase64),
-        })
         setStatus('ok')
         setStep(4)
+        setConfetti(true)
       } catch {
         setStatus('error')
         setError(t.customCta.modal.error)
@@ -234,15 +195,17 @@ export function CustomDesignModal({ open, onClose }: Props) {
   if (!open) return null
 
   const progressStep = status === 'ok' ? 4 : step
+  const progressPct = ((progressStep - 1) / 3) * 100
 
   return createPortal(
-    <div className="cdm-root" role="presentation">
-      <button
-        type="button"
-        className="cdm-backdrop"
-        aria-label={t.customCta.modal.close}
-        onClick={onClose}
-      />
+    <div
+      className="cdm-root"
+      role="presentation"
+      onMouseDown={(e) => {
+        if (e.target === e.currentTarget) onClose()
+      }}
+    >
+      <ConfettiBurst active={confetti} onDone={() => setConfetti(false)} />
       <div
         ref={dialogRef}
         className="cdm-dialog"
@@ -267,15 +230,22 @@ export function CustomDesignModal({ open, onClose }: Props) {
           </button>
         </header>
 
-        <div className="cdm-steps" aria-hidden="true">
-          {Array.from({ length: 4 }, (_, i) => (
-            <span
-              key={i}
-              className={`cdm-step-dot ${progressStep === i + 1 ? 'is-active' : ''} ${
-                progressStep > i + 1 ? 'is-done' : ''
-              }`}
-            />
-          ))}
+        <div className="cdm-stepper" aria-hidden="true">
+          <div className="cdm-stepper__labels">
+            {STEPPER_LABELS.map((label, i) => (
+              <span
+                key={label}
+                className={`cdm-stepper__label${progressStep === i + 1 ? ' is-active' : ''}${
+                  progressStep > i + 1 ? ' is-done' : ''
+                }`}
+              >
+                {String(i + 1).padStart(2, '0')} · {label}
+              </span>
+            ))}
+          </div>
+          <div className="cdm-stepper__bar">
+            <span className="cdm-stepper__fill" style={{ width: `${progressPct}%` }} />
+          </div>
         </div>
 
         <div className="cdm-body">
@@ -284,14 +254,15 @@ export function CustomDesignModal({ open, onClose }: Props) {
               <div className="cdm-success">
                 <h3>{t.customCta.modal.successTitle}</h3>
                 <p>{t.customCta.modal.successBody}</p>
+                {previewUrl ? <OkePhotoMockup photoUrl={previewUrl} /> : null}
               </div>
             ) : null}
 
             {status !== 'ok' && step === 1 ? (
-              <>
+              <div className="cdm-step1">
                 <p className="cdm-lede">{t.customCta.modal.uploadHint}</p>
                 <label
-                  className={`cdm-upload ${draggingFile ? 'is-drag' : ''} ${
+                  className={`cdm-dropzone ${draggingFile ? 'is-drag' : ''} ${
                     previewUrl ? 'has-preview' : ''
                   }`}
                   onDragEnter={(e) => {
@@ -309,39 +280,42 @@ export function CustomDesignModal({ open, onClose }: Props) {
                   onDrop={onDrop}
                 >
                   <input type="file" accept="image/*" onChange={onFile} />
-                  {previewUrl ? (
-                    <div className="cdm-preview-wrap">
-                      <img src={previewUrl} alt="" />
-                    </div>
-                  ) : (
-                    <div className="cdm-upload__copy">
-                      <p className="cdm-upload__hint">{t.customCta.modal.uploadCta}</p>
-                      <p className="cdm-upload__sub">Drag & drop</p>
-                    </div>
-                  )}
+                  <span className="cdm-dropzone__icon" aria-hidden="true">
+                    ↑
+                  </span>
+                  <p className="cdm-dropzone__hint">{t.customCta.modal.uploadCta}</p>
+                  <p className="cdm-dropzone__sub">Sleep een foto hierheen of klik om te kiezen</p>
                 </label>
-              </>
+
+                {previewUrl ? (
+                  <div className="cdm-step1__preview">
+                    <OkePhotoMockup photoUrl={previewUrl} />
+                  </div>
+                ) : null}
+              </div>
             ) : null}
 
             {status !== 'ok' && step === 2 ? (
               <>
                 <p className="cdm-tilt-title">{t.customCta.modal.previewLabel}</p>
                 <p className="cdm-lede">{t.customCta.modal.previewHint}</p>
-                <div
-                  className="cdm-tilt-stage"
-                  onPointerDown={onTiltPointerDown}
-                  aria-label={t.customCta.modal.previewLabel}
-                >
-                  {previewUrl ? (
-                    <img
-                      ref={tiltImgRef}
-                      className="cdm-tilt-img"
-                      src={previewUrl}
-                      alt=""
-                      draggable={false}
+                {previewUrl ? (
+                  <Suspense
+                    fallback={
+                      <div className="cdm-3d-fallback">
+                        <p>{t.customCta.modal.previewLoading}</p>
+                      </div>
+                    }
+                  >
+                    <CustomPhoto3DPreview
+                      imageUrl={previewUrl}
+                      label={t.customCta.modal.previewLabel}
+                      loadingLabel={t.customCta.modal.previewLoading}
+                      readyLabel={t.customCta.modal.previewReady}
+                      fallbackLabel={t.customCta.modal.previewFallback}
                     />
-                  ) : null}
-                </div>
+                  </Suspense>
+                ) : null}
               </>
             ) : null}
 
@@ -403,14 +377,7 @@ export function CustomDesignModal({ open, onClose }: Props) {
                   type="button"
                   className="cdm-btn cdm-btn--primary"
                   disabled={!canNext}
-                  onClick={() => {
-                    if (step === 2) {
-                      rotYRef.current = 0
-                      rotXRef.current = 0
-                      applyTilt()
-                    }
-                    setStep((s) => Math.min(FORM_STEPS, s + 1))
-                  }}
+                  onClick={() => setStep((s) => Math.min(FORM_STEPS, s + 1))}
                 >
                   {t.customCta.modal.next}
                 </button>

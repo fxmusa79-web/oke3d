@@ -1,10 +1,13 @@
 /**
  * For more details on how to configure Wrangler, refer to:
  * https://developers.cloudflare.com/workers/wrangler/configuration/
+ *
+ * Provision remote resources (once, after `npx wrangler login`):
+ *   npm run cf:provision
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "okstore",
+	"name": "oke3d",
 	"main": "worker/index.ts",
 	"compatibility_date": "2026-10-01",
 	"assets": {
@@ -14,26 +17,18 @@
 		"enabled": true
 	},
 	"upload_source_maps": true,
-	/**
-	 * D1 + R2 for custom figure requests.
-	 * Provision first, then uncomment and paste the real database_id:
-	 *   npx wrangler d1 create oke3d_requests
-	 *   npx wrangler d1 migrations apply CUSTOM_REQUESTS --remote
-	 *   npx wrangler r2 bucket create oke3d-uploads
-	 *
-	 * "d1_databases": [
-	 *   {
-	 *     "binding": "CUSTOM_REQUESTS",
-	 *     "database_name": "oke3d_requests",
-	 *     "database_id": "REPLACE_WITH_D1_ID",
-	 *     "migrations_dir": "migrations"
-	 *   }
-	 * ],
-	 * "r2_buckets": [
-	 *   {
-	 *     "binding": "R2_UPLOADS",
-	 *     "bucket_name": "oke3d-uploads"
-	 *   }
-	 * ]
-	 */
+	"d1_databases": [
+		{
+			"binding": "CUSTOM_REQUESTS",
+			"database_name": "oke3d_requests",
+			"database_id": "640ba036-92ce-4b3e-974b-6d960142f58b",
+			"migrations_dir": "migrations"
+		}
+	],
+	"r2_buckets": [
+		{
+			"binding": "R2_UPLOADS",
+			"bucket_name": "oke3d-uploads"
+		}
+	]
 }

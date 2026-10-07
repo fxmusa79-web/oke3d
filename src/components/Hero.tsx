@@ -5,6 +5,7 @@ import { useGSAP } from '@gsap/react'
 import { HeroBackgroundSwitcher } from './HeroBackgroundSwitcher'
 import { HeroFigureCarousel } from './HeroFigureCarousel'
 import { HeroShaderBg } from './HeroShaderBg'
+import { MagneticPrimary } from './ui/MagneticPrimary'
 import './Hero.css'
 
 gsap.registerPlugin(useGSAP)
@@ -72,6 +73,8 @@ export function Hero() {
     <section ref={rootRef} className="oke-hero" aria-labelledby="oke-hero-title">
       <HeroShaderBg />
       <HeroBackgroundSwitcher />
+      <div className="oke-hero__grain" aria-hidden="true" />
+      <div className="oke-hero__vignette" aria-hidden="true" />
 
       <div className="oke-hero__grid">
         <div className="oke-hero__copy">
@@ -90,16 +93,19 @@ export function Hero() {
           </p>
 
           <div className="oke-hero__actions oke-hero__reveal">
-            <Link className="oke-hero__btn oke-hero__btn--primary" to="/collectie">
-              Bekijk collectie
-            </Link>
-            <Link className="oke-hero__btn oke-hero__btn--secondary" to="/aanvragen">
+            <MagneticPrimary>
+              <Link className="oke-hero__btn oke-hero__btn--primary" to="/collectie">
+                Bekijk collectie
+              </Link>
+            </MagneticPrimary>
+            <Link className="oke-hero__btn oke-hero__btn--secondary" to="/op-maat">
               Laat iets maken
             </Link>
           </div>
         </div>
 
         <div className="oke-hero__stage">
+          {/* Cutout carousel — real product photos. GLB R3F only when /models/oke-figurine.glb exists. */}
           <HeroFigureCarousel />
         </div>
       </div>

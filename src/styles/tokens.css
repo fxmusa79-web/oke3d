@@ -37,8 +37,8 @@
 
   /* —— Typography families —— */
   --oke-font-display: 'Syne', 'Arial Narrow', sans-serif;
-  --oke-font-body: 'Outfit', system-ui, sans-serif;
-  --oke-font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --oke-font-body: 'Space Grotesk', system-ui, sans-serif;
+  --oke-font-mono: 'Space Grotesk', system-ui, sans-serif;
 
   --oke-tracking-display: -0.035em;
   --oke-tracking-tight: -0.02em;

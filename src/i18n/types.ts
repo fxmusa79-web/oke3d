@@ -13,8 +13,11 @@ export type Dictionary = {
   nav: {
     collection: string
     editions: string
+    accessories: string
+    materials: string
     custom: string
     about: string
+    request: string
     cta: string
     openMenu: string
     closeMenu: string
@@ -45,6 +48,9 @@ export type Dictionary = {
       uploadCta: string
       previewHint: string
       previewLabel: string
+      previewLoading: string
+      previewReady: string
+      previewFallback: string
       name: string
       email: string
       description: string
@@ -60,6 +66,58 @@ export type Dictionary = {
     title: string
     lede: string
     body: string
+    craft: string
+    stats: { value: number; suffix: string; label: string }[]
+  }
+  aboutPage: {
+    seoTitle: string
+    seoDescription: string
+    eyebrow: string
+    title: string
+    lede: string
+    craftTitle: string
+    craftBody: string
+    craftBody2: string
+    studioTitle: string
+    studioBody: string
+    studioPoints: string[]
+    exploreTitle: string
+    exploreBody: string
+  }
+  accessoriesPage: {
+    seoTitle: string
+    seoDescription: string
+    eyebrow: string
+    title: string
+    lede: string
+    ctaLede: string
+    cta: string
+  }
+  materialsPage: {
+    seoTitle: string
+    seoDescription: string
+    eyebrow: string
+    title: string
+    lede: string
+    body: string
+    body2: string
+    swatchLabel: string
+    ctaLede: string
+    cta: string
+  }
+  editionsPage: {
+    seoTitle: string
+    seoDescription: string
+    body: string
+    body2: string
+    craftNote: string
+  }
+  collectionPage: {
+    seoTitle: string
+    seoDescription: string
+    body: string
+    craftNote: string
+    related: string
   }
   printIdeas: {
     eyebrow: string
@@ -127,6 +185,8 @@ export type Dictionary = {
     links: {
       collection: string
       editions: string
+      accessories: string
+      materials: string
       custom: string
       about: string
       contact: string
@@ -169,8 +229,8 @@ export type Dictionary = {
     label: string
     open: string
     close: string
-    call: string
     contact: string
+    contactSub: string
     design: string
     designSub: string
     collection: string
@@ -178,5 +238,27 @@ export type Dictionary = {
   }
   placeholder: {
     body: string
+  }
+  contactPage: {
+    seoTitle: string
+    seoDescription: string
+    eyebrow: string
+    title: string
+    lede: string
+    emailLabel: string
+    emailBody: string
+    studioLabel: string
+    studioBody: string
+    ctaCustom: string
+    ctaRequest: string
+  }
+  faqPage: {
+    seoTitle: string
+    seoDescription: string
+    eyebrow: string
+    title: string
+    lede: string
+    items: { q: string; a: string }[]
+    cta: string
   }
 }

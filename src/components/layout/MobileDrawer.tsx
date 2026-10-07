@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
+import { drawerExtraNav, primaryNav } from '../../data/navLinks'
 import { useI18n } from '../../i18n/useI18n'
 import { Button } from '../ui/Button'
 import { LanguageSwitch } from './LanguageSwitch'
@@ -26,12 +27,10 @@ export function MobileDrawer({ open, onClose }: Props) {
     }
   }, [open, onClose])
 
-  const links = [
-    { to: '/collectie', label: t.nav.collection },
-    { to: '/edities', label: t.nav.editions },
-    { to: '/op-maat', label: t.nav.custom },
-    { to: '/over', label: t.nav.about },
-  ]
+  const links = [...primaryNav, ...drawerExtraNav].map((item) => ({
+    to: item.to,
+    label: t.nav[item.labelKey],
+  }))
 
   return (
     <div

@@ -1,5 +1,6 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import { MagneticPrimary } from './MagneticPrimary'
 import './Button.css'
 
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'ghost'
@@ -45,6 +46,11 @@ function btnClass(
     .join(' ')
 }
 
+function maybeMagnetic(variant: ButtonVariant, node: ReactNode) {
+  if (resolveVariant(variant) !== 'primary') return node
+  return <MagneticPrimary className="oke-magnetic--btn">{node}</MagneticPrimary>
+}
+
 export function Button(props: ButtonAsButton | ButtonAsLink) {
   if ('to' in props && props.to) {
     const {
@@ -58,7 +64,8 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
       disabled,
     } = props
 
-    return (
+    return maybeMagnetic(
+      variant,
       <Link
         to={to}
         className={btnClass(variant, size, onDark, className)}
@@ -73,7 +80,7 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
         tabIndex={disabled ? -1 : undefined}
       >
         {children}
-      </Link>
+      </Link>,
     )
   }
 
@@ -88,13 +95,14 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
     ...rest
   } = buttonProps
 
-  return (
+  return maybeMagnetic(
+    variant,
     <button
       type={type}
       className={btnClass(variant, size, onDark, className)}
       {...rest}
     >
       {children}
-    </button>
+    </button>,
   )
 }

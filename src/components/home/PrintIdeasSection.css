@@ -35,14 +35,8 @@
   margin: 0 0 var(--oke-space-7);
   padding: 0;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--oke-space-6) var(--oke-space-4);
-}
-
-@media (min-width: 640px) {
-  .print-ideas__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (min-width: 1024px) {
@@ -50,6 +44,30 @@
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: var(--oke-space-5) var(--oke-space-3);
   }
+}
+
+.print-ideas__carousel {
+  margin: 0 calc(var(--oke-gutter) * -1) var(--oke-space-7);
+  padding: 0 var(--oke-gutter);
+}
+
+.print-ideas__swiper {
+  padding-bottom: 2rem;
+  overflow: visible;
+}
+
+.print-ideas__swiper .swiper-slide {
+  height: auto;
+}
+
+.print-ideas__swiper .swiper-pagination-bullet {
+  background: var(--oke-ink);
+  opacity: 0.25;
+}
+
+.print-ideas__swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: var(--oke-accent);
 }
 
 .print-ideas__card {

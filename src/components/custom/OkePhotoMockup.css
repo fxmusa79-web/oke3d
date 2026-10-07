@@ -1,0 +1,50 @@
+.cdm-mockup {
+  display: grid;
+  gap: 0.65rem;
+  justify-items: center;
+}
+
+.cdm-mockup__stage {
+  position: relative;
+  width: min(100%, 16rem);
+  aspect-ratio: 3 / 4;
+  display: grid;
+  place-items: end center;
+}
+
+.cdm-mockup__figure {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 20%;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center bottom;
+  mask-position: center bottom;
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.cdm-mockup__outline {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  user-select: none;
+}
+
+.cdm-mockup__caption {
+  margin: 0;
+  font-family: var(--oke-font-mono, ui-monospace, monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5c6570;
+  text-align: center;
+}

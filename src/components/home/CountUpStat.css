@@ -1,0 +1,26 @@
+.oke-stat {
+  min-width: 8.5rem;
+}
+
+.oke-stat__value {
+  margin: 0;
+  font-family: var(--oke-font-display, system-ui, sans-serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.35rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--oke-ink, #0a0a0a);
+}
+
+.oke-stat__value span {
+  color: inherit;
+}
+
+.oke-stat__label {
+  margin: 0.4rem 0 0;
+  font-family: var(--oke-font-mono, ui-monospace, monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--oke-ink-muted, #5c6570);
+}

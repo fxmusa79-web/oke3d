@@ -1,0 +1,123 @@
+.oke-about-page {
+  max-width: var(--oke-max-editorial, 72rem);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 7vh, 4rem) var(--oke-gutter) clamp(4rem, 10vh, 6.5rem);
+}
+
+.oke-about-page__eyebrow {
+  margin: 0 0 0.75rem;
+  font-family: var(--oke-font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oke-accent);
+}
+
+.oke-about-page__hero h1 {
+  margin: 0 0 1rem;
+  font-family: var(--oke-font-display);
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  max-width: 14ch;
+}
+
+.oke-about-page__lede {
+  margin: 0 0 1.75rem;
+  max-width: 38rem;
+  color: var(--oke-ink-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.oke-about-page__block {
+  margin-top: clamp(2.5rem, 6vh, 3.5rem);
+  max-width: 40rem;
+}
+
+.oke-about-page__block h2,
+.oke-about-page__split h2 {
+  margin: 0 0 0.85rem;
+  font-family: var(--oke-font-display);
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+}
+
+.oke-about-page__block p,
+.oke-about-page__split p {
+  margin: 0 0 1rem;
+  color: var(--oke-ink-muted);
+  line-height: 1.65;
+}
+
+.oke-about-page__split {
+  margin-top: clamp(2.75rem, 7vh, 4rem);
+  display: grid;
+  gap: 1.75rem;
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .oke-about-page__split {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2.5rem;
+  }
+}
+
+.oke-about-page__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.oke-about-page__list li {
+  position: relative;
+  padding-left: 1rem;
+  color: var(--oke-ink);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.oke-about-page__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--oke-accent);
+}
+
+.oke-about-page__figure {
+  margin: 0;
+  background: transparent;
+}
+
+.oke-about-page__figure img {
+  width: 100%;
+  height: auto;
+  max-height: 28rem;
+  object-fit: contain;
+  display: block;
+}
+
+.oke-about-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.1rem;
+  margin-top: 1.25rem;
+}
+
+.oke-about-page__text-link {
+  color: var(--oke-ink-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.oke-about-page__text-link:hover {
+  color: var(--oke-ink);
+}

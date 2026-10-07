@@ -1,0 +1,85 @@
+.cdm-3d {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.cdm-3d__stage {
+  position: relative;
+  width: 100%;
+  min-height: 18rem;
+  height: min(52vh, 26rem);
+  border-radius: 0.85rem;
+  overflow: hidden;
+  background: #0c0c0c;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+}
+
+.cdm-3d__stage:active {
+  cursor: grabbing;
+}
+
+.cdm-3d__stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cdm-3d__build {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.cdm-3d__status {
+  margin: 0;
+  font-family: var(--oke-font-mono, ui-monospace, monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5c6570;
+}
+
+.cdm-3d__status--building {
+  color: var(--oke-accent, #1570d8);
+}
+
+.cdm-3d__status--ready {
+  color: #2f8f5b;
+}
+
+.cdm-3d__status--fallback {
+  color: #9aa3ad;
+}
+
+.cdm-3d__bar {
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.1);
+  overflow: hidden;
+}
+
+.cdm-3d__bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #1570d8, #1a7ef0);
+  transition: width 220ms var(--oke-ease-out, ease);
+}
+
+.cdm-3d__eta {
+  margin: 0;
+  font-family: var(--oke-font-mono, ui-monospace, monospace);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9aa3ad;
+}
+
+@media (max-width: 640px) {
+  .cdm-3d__stage {
+    min-height: 16rem;
+    height: min(48vh, 22rem);
+  }
+}

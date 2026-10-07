@@ -18,10 +18,16 @@ const ALLOWED_IDS = new Set([
   'bbq-grillmaster',
   'black-puffer',
   'black-ghost-coffee',
+  'black-gym-backpack',
+  'black-kettlebell-female',
+  'black-coffee-cutout',
+  'black-dumbbell-alt',
+  'bbq-exploded',
+  'bbq-assembled',
 ])
 
 const ALLOWED_PATH =
-  /black-fitness-kettlebell|black-dumbbell|black-fitness-dumbbell|winter-single|monochrome-couple|bbq-apron|bbq-grillmaster|grillmaster|black-puffer|black-ghost-coffee|black-streetwear-coffee|black-coffee|\/assets\/dark\//i
+  /black-fitness-kettlebell|black-dumbbell|black-fitness-dumbbell|winter-single|monochrome-couple|bbq-apron|bbq-grillmaster|grillmaster|black-puffer|black-ghost-coffee|black-streetwear-coffee|black-coffee|black-gym-backpack|black-kettlebell-female|bbq-exploded|bbq-assembled|\/assets\/dark\//i
 
 export function isForbiddenImagePath(path: string): boolean {
   return FORBIDDEN.test(path)

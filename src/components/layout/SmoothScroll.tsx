@@ -1,9 +1,16 @@
 import { useEffect, type ReactNode } from 'react'
 import Lenis from 'lenis'
+import 'lenis/dist/lenis.css'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import gsap from 'gsap'
 
 gsap.registerPlugin(ScrollTrigger)
+
+declare global {
+  interface Window {
+    __okeLenis?: Lenis
+  }
+}
 
 /** Site-wide smooth scroll — disabled for reduced motion. */
 export function SmoothScroll({ children }: { children: ReactNode }) {
@@ -17,6 +24,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       touchMultiplier: 1.1,
     })
 
+    window.__okeLenis = lenis
     lenis.on('scroll', ScrollTrigger.update)
 
     let rafId = 0
@@ -28,6 +36,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
 
     return () => {
       cancelAnimationFrame(rafId)
+      if (window.__okeLenis === lenis) delete window.__okeLenis
       lenis.destroy()
     }
   }, [])

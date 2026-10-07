@@ -63,11 +63,14 @@
   border-radius: var(--oke-radius-md);
   box-shadow: var(--oke-shadow-soft);
   transform-origin: bottom right;
-  animation: oke-fab-in var(--oke-dur-small) var(--oke-ease-out);
 }
 
 .oke-fab__menu[hidden] {
   display: none;
+}
+
+.oke-fab.is-open .oke-fab__menu:not([hidden]) {
+  animation: oke-fab-in var(--oke-dur-small) var(--oke-ease-out);
 }
 
 .oke-fab__item {

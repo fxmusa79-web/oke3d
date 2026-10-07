@@ -22,7 +22,7 @@
 .oke-h2 {
   font-family: var(--oke-font-display);
   font-size: var(--oke-text-h2);
-  font-weight: 700;
+  font-weight: 800;
   line-height: var(--oke-leading-heading);
   letter-spacing: var(--oke-tracking-tight);
   color: var(--oke-ink);
@@ -31,7 +31,7 @@
 .oke-h3 {
   font-family: var(--oke-font-display);
   font-size: var(--oke-text-h3);
-  font-weight: 700;
+  font-weight: 800;
   line-height: var(--oke-leading-tight);
   letter-spacing: var(--oke-tracking-tight);
   color: var(--oke-ink);
@@ -40,7 +40,7 @@
 .oke-h4 {
   font-family: var(--oke-font-display);
   font-size: var(--oke-text-h4);
-  font-weight: 600;
+  font-weight: 800;
   line-height: var(--oke-leading-tight);
   letter-spacing: var(--oke-tracking-tight);
   color: var(--oke-ink);

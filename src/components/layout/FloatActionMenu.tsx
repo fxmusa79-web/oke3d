@@ -1,7 +1,8 @@
 import { useEffect, useId, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { siteContact } from '../../data/contact'
+import gsap from 'gsap'
 import { useI18n } from '../../i18n/useI18n'
+import { MOTION } from '../../lib/animations/motion'
 import './FloatActionMenu.css'
 
 export function FloatActionMenu() {
@@ -9,6 +10,7 @@ export function FloatActionMenu() {
   const { pathname } = useLocation()
   const [open, setOpen] = useState(false)
   const rootRef = useRef<HTMLDivElement>(null)
+  const itemsRef = useRef<HTMLDivElement>(null)
   const menuId = useId()
 
   const hideOn =
@@ -38,16 +40,57 @@ export function FloatActionMenu() {
     }
   }, [open])
 
+  useEffect(() => {
+    const root = itemsRef.current
+    if (!root || !open) return
+
+    const items = root.querySelectorAll<HTMLElement>('.oke-fab__item')
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduced) {
+      gsap.set(items, { clearProps: 'all', opacity: 1, y: 0 })
+      return
+    }
+
+    gsap.fromTo(
+      items,
+      { opacity: 0, y: 14, scale: 0.96 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: MOTION.small,
+        stagger: 0.07,
+        ease: MOTION.ease.out,
+        overwrite: true,
+      },
+    )
+  }, [open])
+
   if (hideOn) return null
 
   const menu = t.floatMenu
   if (!menu) return null
 
-  const phone = siteContact.phone.trim()
-  const phoneHref = phone ? `tel:${phone}` : '/contact'
-  const phoneLabel = phone
-    ? siteContact.phoneDisplay || phone
-    : menu.contact
+  const links = [
+    {
+      to: '/collectie',
+      title: menu.collection,
+      sub: menu.collectionSub,
+      icon: <GridIcon />,
+    },
+    {
+      to: '/aanvragen',
+      title: menu.design,
+      sub: menu.designSub,
+      icon: <UploadIcon />,
+    },
+    {
+      to: '/contact',
+      title: menu.contact,
+      sub: menu.contactSub,
+      icon: <MailIcon />,
+    },
+  ] as const
 
   return (
     <div
@@ -57,67 +100,29 @@ export function FloatActionMenu() {
       aria-label={menu.label}
     >
       <div
+        ref={itemsRef}
         className="oke-fab__menu"
         id={menuId}
         hidden={!open}
         role="menu"
       >
-        {phone ? (
-          <a className="oke-fab__item" role="menuitem" href={phoneHref}>
-            <span className="oke-fab__icon" aria-hidden="true">
-              <PhoneIcon />
-            </span>
-            <span className="oke-fab__text">
-                <span className="oke-fab__title">{menu.call}</span>
-                <span className="oke-fab__sub">{phoneLabel}</span>
-              </span>
-            </a>
-        ) : (
+        {links.map((item) => (
           <Link
+            key={item.to}
             className="oke-fab__item"
             role="menuitem"
-            to="/contact"
+            to={item.to}
             onClick={() => setOpen(false)}
           >
             <span className="oke-fab__icon" aria-hidden="true">
-              <PhoneIcon />
+              {item.icon}
             </span>
             <span className="oke-fab__text">
-              <span className="oke-fab__title">{menu.call}</span>
-              <span className="oke-fab__sub">{menu.contact}</span>
+              <span className="oke-fab__title">{item.title}</span>
+              <span className="oke-fab__sub">{item.sub}</span>
             </span>
           </Link>
-        )}
-
-        <Link
-          className="oke-fab__item"
-          role="menuitem"
-          to="/aanvragen"
-          onClick={() => setOpen(false)}
-        >
-          <span className="oke-fab__icon" aria-hidden="true">
-            <DesignIcon />
-          </span>
-          <span className="oke-fab__text">
-            <span className="oke-fab__title">{menu.design}</span>
-            <span className="oke-fab__sub">{menu.designSub}</span>
-          </span>
-        </Link>
-
-        <Link
-          className="oke-fab__item"
-          role="menuitem"
-          to="/collectie"
-          onClick={() => setOpen(false)}
-        >
-          <span className="oke-fab__icon" aria-hidden="true">
-            <GridIcon />
-          </span>
-          <span className="oke-fab__text">
-            <span className="oke-fab__title">{menu.collection}</span>
-            <span className="oke-fab__sub">{menu.collectionSub}</span>
-          </span>
-        </Link>
+        ))}
       </div>
 
       <button
@@ -162,32 +167,6 @@ function CloseIcon() {
   )
 }
 
-function PhoneIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M8.5 3.5h3l1.5 4-2 1.5a12 12 0 0 0 5 5l1.5-2 4 1.5v3c0 1.1-.9 2-2 2A15 15 0 0 1 4.5 7.5c0-1.1.9-2 2-2Z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
-function DesignIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M4 20l4.5-1.2L19 8.3a2.1 2.1 0 0 0-3-3L5.5 15.8 4 20Z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
 function GridIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -195,6 +174,29 @@ function GridIcon() {
       <rect x="13.5" y="4" width="6.5" height="6.5" rx="1" stroke="currentColor" strokeWidth="1.6" />
       <rect x="4" y="13.5" width="6.5" height="6.5" rx="1" stroke="currentColor" strokeWidth="1.6" />
       <rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1" stroke="currentColor" strokeWidth="1.6" />
+    </svg>
+  )
+}
+
+function UploadIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M12 16V5M12 5l-4 4M12 5l4 4M5 19h14"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+function MailIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <rect x="3.5" y="5.5" width="17" height="13" rx="1.5" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M4 7l8 6 8-6" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
     </svg>
   )
 }

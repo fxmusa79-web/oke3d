@@ -1,0 +1,16 @@
+/* OKE3D nprogress — filament accent, no spinner */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: var(--oke-accent-filament, #1a7ef0);
+  height: 2px;
+  z-index: 9999;
+}
+
+#nprogress .peg {
+  box-shadow:
+    0 0 10px var(--oke-accent-filament, #1a7ef0),
+    0 0 4px var(--oke-accent-filament, #1a7ef0);
+}

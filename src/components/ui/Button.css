@@ -1,3 +1,11 @@
+.oke-magnetic--btn {
+  vertical-align: middle;
+}
+
+.oke-magnetic--btn .oke-btn {
+  width: 100%;
+}
+
 .oke-btn {
   display: inline-flex;
   align-items: center;

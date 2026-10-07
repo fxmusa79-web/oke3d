@@ -2,7 +2,8 @@ import { useMemo } from 'react'
 import { Hero } from '../components/Hero'
 import { CustomDesignSection } from '../components/custom/CustomDesignSection'
 import { FeaturedProducts } from '../components/home/FeaturedProducts'
-import { AboutSection, FinalCta, ProcessSection } from '../components/home/HomeExtra'
+import { AboutSection, FinalCta } from '../components/home/HomeExtra'
+import { ProcessTimeline } from '../components/home/ProcessTimeline'
 import { PrintIdeasSection } from '../components/home/PrintIdeasSection'
 import { Reveal } from '../components/ui/Reveal'
 import { Seo } from '../components/seo/Seo'
@@ -54,9 +55,7 @@ export function HomePage() {
       <Reveal>
         <PrintIdeasSection />
       </Reveal>
-      <Reveal>
-        <ProcessSection />
-      </Reveal>
+      <ProcessTimeline />
       <Reveal>
         <FeaturedProducts />
       </Reveal>

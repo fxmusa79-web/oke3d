@@ -1,0 +1,8 @@
+# Copy to .dev.vars for local `vite` / wrangler dev (never commit .dev.vars)
+ADMIN_USER=oke3d
+ADMIN_PASS=change-me-strong-password
+# Hugging Face token (free) for /api/generate-3d → TripoSR
+# HF_TOKEN=hf_xxxxxxxx
+# RESEND_API_KEY=
+# NOTIFY_EMAIL=info@oke3d.nl
+# RESEND_FROM=OKE3D <onboarding@resend.dev>

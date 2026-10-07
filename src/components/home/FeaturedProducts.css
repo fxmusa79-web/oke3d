@@ -1,0 +1,245 @@
+.feat-section {
+  padding: 0 0 clamp(4rem, 10vh, 6rem);
+  overflow: hidden;
+}
+
+.feat-marquee {
+  border-block: 1px solid var(--oke-line, rgba(10, 10, 10, 0.1));
+  background: #0a0a0a;
+  color: #fafaf6;
+  overflow: hidden;
+  margin-bottom: clamp(2rem, 5vh, 3rem);
+}
+
+.feat-marquee__track {
+  display: flex;
+  width: max-content;
+  gap: 0;
+  white-space: nowrap;
+  font-family: var(--oke-font-mono, ui-monospace, monospace);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.7rem 0;
+  animation: feat-marquee 28s linear infinite;
+}
+
+.feat-marquee__track.is-static {
+  animation: none;
+}
+
+.feat-marquee__track span {
+  padding-right: 0.25rem;
+}
+
+@keyframes feat-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.feat-section__inner {
+  padding: 0 var(--oke-gutter);
+  max-width: 92rem;
+  margin: 0 auto;
+}
+
+.feat-section__intro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  align-items: flex-end;
+  margin-bottom: clamp(1.5rem, 4vh, 2.25rem);
+}
+
+.feat-section__eyebrow {
+  margin: 0 0 0.55rem;
+  font-family: var(--oke-font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--oke-accent);
+}
+
+.feat-section__title {
+  margin: 0 0 0.55rem;
+  font-family: var(--oke-font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+  letter-spacing: -0.03em;
+}
+
+.feat-section__lede {
+  margin: 0;
+  max-width: 28rem;
+  color: var(--oke-ink-muted);
+  line-height: 1.55;
+}
+
+.feat-section__link {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--oke-ink-muted);
+  text-decoration: none;
+}
+
+.feat-section__link:hover {
+  color: var(--oke-ink);
+}
+
+.feat-carousel {
+  overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
+  margin-inline: calc(var(--oke-gutter) * -0.35);
+  padding-inline: calc(var(--oke-gutter) * 0.35);
+}
+
+.feat-carousel:active {
+  cursor: grabbing;
+}
+
+.feat-carousel__track {
+  display: flex;
+  gap: 1.15rem;
+  width: max-content;
+  padding-bottom: 0.5rem;
+}
+
+.feat-carousel__slide {
+  flex: 0 0 auto;
+  width: min(72vw, 17.5rem);
+}
+
+@media (min-width: 768px) {
+  .feat-carousel__slide {
+    width: 19rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .feat-carousel__slide {
+    width: 20.5rem;
+  }
+}
+
+.feat-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.feat-card__badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 3;
+  padding: 0.35rem 0.55rem;
+  font-family: var(--oke-font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.feat-card__badge--sold {
+  background: #0a0a0a;
+  color: #fafaf6;
+}
+
+.feat-card__badge--edition {
+  background: rgba(250, 250, 246, 0.92);
+  color: #0a0a0a;
+  border: 1px solid rgba(10, 10, 10, 0.1);
+}
+
+.feat-card__media {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: transparent;
+  text-decoration: none;
+  border-radius: 2px;
+  transform-style: preserve-3d;
+}
+
+.feat-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.feat-card__glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  opacity: 0.65;
+}
+
+.feat-card__body {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.feat-card__meta,
+.feat-card__status {
+  margin: 0;
+  font-family: var(--oke-font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--oke-ink-muted);
+}
+
+.feat-card__title {
+  margin: 0;
+  font-family: var(--oke-font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.feat-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.feat-card__title a:hover {
+  color: var(--oke-accent);
+}
+
+.feat-section__hint {
+  margin: 0.85rem 0 0;
+  font-family: var(--oke-font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oke-ink-muted);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feat-marquee__track {
+    animation: none;
+  }
+
+  .feat-card {
+    will-change: auto;
+  }
+}

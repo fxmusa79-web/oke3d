@@ -62,12 +62,16 @@
 
 /* About — 12-col editorial */
 .home-about {
+  position: relative;
+  isolation: isolate;
   background: #fafaf6;
   padding: 6rem var(--oke-gutter);
   overflow: hidden;
 }
 
 .home-about__grid {
+  position: relative;
+  z-index: 1;
   max-width: 92rem;
   margin: 0 auto;
   display: grid;
@@ -76,8 +80,23 @@
   align-items: center;
 }
 
+.home-about__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.25rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--oke-line);
+}
+
 .home-about__copy {
   max-width: 34rem;
+}
+
+.home-about__craft {
+  max-width: 36rem;
+  color: var(--oke-ink);
+  font-weight: 500;
 }
 
 .home-section__lede--follow {

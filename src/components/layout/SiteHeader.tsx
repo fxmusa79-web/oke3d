@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { primaryNav } from '../../data/navLinks'
 import { brandIcon } from '../../data/products'
 import { useI18n } from '../../i18n/useI18n'
 import { Button } from '../ui/Button'
@@ -19,12 +20,10 @@ export function SiteHeader() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const links = [
-    { to: '/collectie', label: t.nav.collection },
-    { to: '/edities', label: t.nav.editions },
-    { to: '/op-maat', label: t.nav.custom },
-    { to: '/over', label: t.nav.about },
-  ]
+  const links = primaryNav.map((item) => ({
+    to: item.to,
+    label: t.nav[item.labelKey],
+  }))
 
   return (
     <>

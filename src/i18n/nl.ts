@@ -14,8 +14,11 @@ export const nl: Dictionary = {
   nav: {
     collection: 'Collectie',
     editions: 'Edities',
+    accessories: 'Accessoires',
+    materials: 'Materialen',
     custom: 'Op aanvraag',
     about: 'Over OKE3D',
+    request: 'Aanvraag',
     cta: 'Bekijk collectie',
     openMenu: 'Menu openen',
     closeMenu: 'Menu sluiten',
@@ -44,8 +47,12 @@ export const nl: Dictionary = {
       done: 'Klaar',
       uploadHint: 'Upload een foto van jezelf of een schets. Wij gebruiken dit als basis.',
       uploadCta: 'Kies een afbeelding',
-      previewHint: 'Sleep om je concept te draaien. Dit is een 2.5D preview, geen finale render.',
+      previewHint:
+        'We bouwen een echte 3D-mesh (TripoSR, ~20–40s). Daarna kun je draaien met OrbitControls. Concept — geen finale studio-print.',
       previewLabel: '3D Preview (concept)',
+      previewLoading: 'OKE wordt gebouwd…',
+      previewReady: '3D klaar — sleep om te draaien',
+      previewFallback: 'API niet beschikbaar — texture preview. Sleep om te draaien',
       name: 'Naam',
       email: 'E-mail',
       description: 'Beschrijving / wensen',
@@ -61,11 +68,83 @@ export const nl: Dictionary = {
     title: '3D-printen met karakter.',
     lede: 'Van collectibles en bijzondere edities tot prints op aanvraag. We maken digitale ontwerpen tastbaar, in onze eigen studio.',
     body: 'Elke print begint bij vorm, materiaal en detail. We werken in kleine oplages, met oog voor afwerking — zodat een object niet alleen goed staat, maar ook goed voelt in de hand.',
+    craft:
+      'We gaan verder dan kleine gadgets: grote figuren die in modules worden geprint en in elkaar klikken, exploded builds, en maatwerk tot op het detail. Precisie, schaal en afwerking — dat is het niveau.',
+    stats: [
+      { value: 120, suffix: '+', label: 'unieke prints' },
+      { value: 100, suffix: '%', label: 'eigen studio' },
+    ],
+  },
+  aboutPage: {
+    seoTitle: 'Over OKE3D — Nederlandse 3D-printstudio voor collectibles',
+    seoDescription:
+      'OKE3D is een Nederlandse studio voor 3D-geprinte collectibles, edities en prints op aanvraag. Modules, exploded builds en afwerking uit eigen huis.',
+    eyebrow: 'Studio',
+    title: 'Wij maken digitale ideeën tastbaar.',
+    lede: 'OKE3D is geen webshop-template. Het is een collectible-studio: vorm, materiaal en afwerking uit eigen printbed — van compacte charms tot grote klikbare figuren.',
+    craftTitle: 'Craft & schaal',
+    craftBody:
+      'Grote poppetjes printen we in modules die in elkaar klikken. Exploded views tonen elk onderdeel. Zo houden we schaal, detail en stevigheid onder controle zonder concessies aan de look.',
+    craftBody2:
+      'Elke aanvraag begint bij haalbaarheid: wanddikte, steunstructuur, materiaal en afwerking. Daarna volgt een helder voorstel — geen beloftes die de printer niet aankan.',
+    studioTitle: 'Eigen studio, eigen standaard',
+    studioBody:
+      'We werken in kleine oplages. Dat betekent meer controle op kleur, lagen en nabewerking — en objecten die goed staan én goed voelen.',
+    studioPoints: [
+      'Collectibles & signature edities',
+      'Custom prints op basis van foto of schets',
+      'Functionele accessoires en desk objects',
+      'Modulaire builds voor grotere figuren',
+    ],
+    exploreTitle: 'Verder kijken',
+    exploreBody: 'Van collectie tot materialen en aanvraag — alles hangt samen in één studio-ervaring.',
+  },
+  accessoriesPage: {
+    seoTitle: 'Accessoires & modules — OKE3D',
+    seoDescription:
+      'Functionele 3D-prints en klikbare modules uit de OKE3D-studio: desk objects, charms en BBQ-onderdelen.',
+    eyebrow: 'Studio extras',
+    title: 'Accessoires & modules',
+    lede: 'Naast signature figuren printen we functionele objecten en losse modules — handig als inspiratie of als startpunt voor jouw aanvraag.',
+    ctaLede: 'Wil je iets vergelijkbaars of een module-build op maat?',
+    cta: 'Start aanvraag',
+  },
+  materialsPage: {
+    seoTitle: 'Materialen & filament — OKE3D studio',
+    seoDescription:
+      'Welke materialen we gebruiken bij OKE3D: PLA, PETG, ABS en meer. Kies kleur en eigenschappen samen met de studio.',
+    eyebrow: 'Materiaal',
+    title: 'Filament & finish',
+    lede: 'Materiaal bepaalt look, sterkte en gevoel. We adviseren per object — van display-collectible tot functioneel printwerk.',
+    body: 'We werken met gangbare studio-filamenten (o.a. PLA, PETG, ABS/ASA, TPU waar nodig). Kleur, glans en nabewerking stemmen we af op jouw ontwerp.',
+    body2:
+      'Geen marketplace-scrapes: alleen wat we in de studio écht printen. Twijfel je tussen materialen? Vermeld het in je aanvraag — we denken mee.',
+    swatchLabel: 'Voorbeeldkleuren',
+    ctaLede: 'Klaar om materiaal en model te bespreken?',
+    cta: 'Vraag advies aan',
+  },
+  editionsPage: {
+    seoTitle: 'Edities — OKE3D collecties',
+    seoDescription:
+      'OKE3D edities: OKE. Collectie, Monochrome en BBQ Edition. Thema-collecties met eigen look uit de studio.',
+    body: 'Elke editie heeft een eigen visuele taal: fitness black, monochrome winter, BBQ craft. Geen willekeurige productdump — wel curated sets die bij elkaar horen.',
+    body2:
+      'Grote builds (zoals BBQ) laten zien hoe modules, exploded views en afwerking samenkomen. Kleinere edities focussen op silhouette en studio-finish.',
+    craftNote: 'Tip: open BBQ Edition voor klikbare onderdelen en exploded craft.',
+  },
+  collectionPage: {
+    seoTitle: 'Collectie — 3D collectibles van OKE3D',
+    seoDescription:
+      'Bekijk de OKE3D collectie: zwarte fitness figuren, monochrome winter en BBQ Edition. Op aanvraag uit eigen studio.',
+    body: 'Filter op editie en open een product voor detail. Alles hieronder komt uit onze dark studio-lijn — cutouts zonder witte dozen.',
+    craftNote:
+      'Veel figuren kunnen groter: in modules printen en in elkaar klikken. Vraag ernaar bij je aanvraag.',
+    related: 'Ook interessant',
   },
   printIdeas: {
     eyebrow: 'Inspiratie',
     title: 'Wat kun je laten maken?',
-    lede: 'Naast collectibles printen we ook functionele objecten — van grinders en bekers tot stands en organizers. Gebruik dit als startpunt voor jouw aanvraag.',
+    lede: 'Naast collectibles printen we ook functionele objecten — van grinders en bekers tot stands en organizers. Gebruik de voorbeelden als startpunt voor jouw aanvraag.',
     cta: 'Vraag jouw print aan',
     secondary: 'Naar de collectie',
   },
@@ -177,6 +256,8 @@ export const nl: Dictionary = {
     links: {
       collection: 'Collectie',
       editions: 'Edities',
+      accessories: 'Accessoires',
+      materials: 'Materialen',
       custom: 'Prints op aanvraag',
       about: 'Over OKE3D',
       contact: 'Contact',
@@ -224,14 +305,53 @@ export const nl: Dictionary = {
     label: 'Snelle acties',
     open: 'Menu openen',
     close: 'Menu sluiten',
-    call: 'Bellen',
-    contact: 'Naar contact',
-    design: 'Maak je ontwerp',
-    designSub: 'Custom print aanvraag',
-    collection: 'Collectie',
+    contact: 'Contact',
+    contactSub: 'Stuur een bericht',
+    design: 'Upload idee',
+    designSub: 'Foto of schets als start',
+    collection: 'Quick collectie',
     collectionSub: 'Bekijk alle figuren',
   },
   placeholder: {
     body: 'Deze pagina wordt in de volgende fase verder uitgewerkt.',
+  },
+  contactPage: {
+    seoTitle: 'Contact — OKE3D',
+    seoDescription: 'Neem contact op met de OKE3D studio voor collectibles, edities en prints op aanvraag.',
+    eyebrow: 'Contact',
+    title: 'Praat met de studio.',
+    lede: 'Vragen over een print, oplage of materiaal? Stuur een mail of start meteen een custom aanvraag.',
+    emailLabel: 'E-mail',
+    emailBody: 'We reageren meestal binnen één tot twee werkdagen.',
+    studioLabel: 'Studio',
+    studioBody: 'Nederlandse 3D-printstudio. Kleine oplages, eigen craft — van digitaal idee naar tastbaar object.',
+    ctaCustom: 'Start custom OKE',
+    ctaRequest: 'Productaanvraag',
+  },
+  faqPage: {
+    seoTitle: 'FAQ — OKE3D',
+    seoDescription: 'Veelgestelde vragen over OKE3D collectibles, custom prints, materialen en levertijd.',
+    eyebrow: 'FAQ',
+    title: 'Veelgestelde vragen',
+    lede: 'Kort en praktisch — zo weet je wat je van de studio kunt verwachten.',
+    items: [
+      {
+        q: 'Wat kan ik laten printen?',
+        a: 'Collectibles, edities, modules en custom prints op basis van foto of schets. We checken eerst of het technisch haalbaar is.',
+      },
+      {
+        q: 'Is de 3D-preview in de popup de finale print?',
+        a: 'Nee. Dat is een conceptmesh om vorm te verkennen. De echte studio-print volgt na overleg over schaal, materiaal en afwerking.',
+      },
+      {
+        q: 'Hoe lang duurt een aanvraag?',
+        a: 'Reactie binnen 1–2 werkdagen. Productietijd hangt af van complexiteit, oplage en nabewerking.',
+      },
+      {
+        q: 'Welke materialen gebruiken jullie?',
+        a: 'O.a. PLA, PETG en ABS/ASA. We adviseren per object — kijk ook op de materialenpagina.',
+      },
+    ],
+    cta: 'Start custom OKE',
   },
 }

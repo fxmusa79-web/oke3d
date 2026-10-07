@@ -14,6 +14,7 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <article
       className={`oke-card is-${product.kind}${isBbq ? ' is-bbq' : ''}`}
+      data-cursor="collectible"
     >
       <Link to={`/product/${product.id}`} className="oke-card__media">
         <img

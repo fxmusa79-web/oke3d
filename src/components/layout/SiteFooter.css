@@ -1,8 +1,10 @@
 .oke-footer {
+  position: relative;
   margin-top: 0;
-  padding: clamp(3rem, 8vh, 4.5rem) var(--oke-gutter) 2rem;
+  padding: clamp(3rem, 8vh, 4.5rem) var(--oke-gutter) 0;
   background: var(--oke-dark-bg);
   color: var(--oke-dark-muted);
+  overflow: hidden;
 }
 
 .oke-footer__grid {
@@ -74,13 +76,37 @@
 .oke-footer__bottom {
   max-width: 92rem;
   margin: 2.5rem auto 0;
-  padding-top: 1.25rem;
+  padding: 1.25rem 0 0.5rem;
   border-top: 1px solid var(--oke-dark-line);
 }
 
 .oke-footer__bottom p {
   margin: 0;
   font-size: 0.78rem;
+}
+
+.oke-footer__mark-wrap {
+  margin-top: 0.25rem;
+  overflow: hidden;
+  line-height: 0.78;
+  user-select: none;
+}
+
+.oke-footer__mark {
+  margin: 0;
+  font-family: var(--oke-font-display);
+  font-weight: 800;
+  font-size: clamp(4.5rem, 22vw, 14rem);
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(250, 250, 246, 0.18);
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.oke-footer__mark span {
+  -webkit-text-stroke-color: rgba(26, 126, 240, 0.45);
 }
 
 /* Language switch readable on dark footer */

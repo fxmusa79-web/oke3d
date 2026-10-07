@@ -1,0 +1,245 @@
+.oke-admin {
+  min-height: 100dvh;
+  background: var(--oke-dark-bg, #0a0a0a);
+  color: var(--oke-dark-ink, #fafaf6);
+  font-family: var(--oke-font-body, system-ui, sans-serif);
+  padding: 1.25rem clamp(1rem, 3vw, 2rem) 2.5rem;
+}
+
+.oke-admin--login {
+  display: grid;
+  place-items: center;
+}
+
+.oke-admin__login {
+  width: min(100%, 22rem);
+  display: grid;
+  gap: 1rem;
+  padding: 1.75rem;
+  background: var(--oke-dark-elevated, #12151a);
+  border: 1px solid var(--oke-dark-line, rgba(250, 250, 246, 0.12));
+}
+
+.oke-admin__eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oke-accent, #1570d8);
+}
+
+.oke-admin__title {
+  margin: 0;
+  font-family: var(--oke-font-display, sans-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.oke-admin__field {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--oke-dark-muted, #9aa3ad);
+}
+
+.oke-admin__field input {
+  appearance: none;
+  border: 1px solid var(--oke-dark-line, rgba(250, 250, 246, 0.12));
+  background: #0a0a0a;
+  color: inherit;
+  padding: 0.65rem 0.75rem;
+  font: inherit;
+}
+
+.oke-admin__field input:focus {
+  outline: none;
+  border-color: var(--oke-accent, #1570d8);
+}
+
+.oke-admin__btn {
+  appearance: none;
+  border: 1px solid var(--oke-accent, #1570d8);
+  background: var(--oke-accent, #1570d8);
+  color: #fff;
+  padding: 0.55rem 0.9rem;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.oke-admin__btn--ghost {
+  background: transparent;
+  color: var(--oke-dark-ink, #fafaf6);
+  border-color: var(--oke-dark-line, rgba(250, 250, 246, 0.18));
+}
+
+.oke-admin__btn:hover {
+  filter: brightness(1.05);
+}
+
+.oke-admin__error {
+  margin: 0;
+  color: #f0a0a0;
+  font-size: 0.85rem;
+}
+
+.oke-admin__error--banner {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(214, 69, 69, 0.12);
+  border: 1px solid rgba(214, 69, 69, 0.35);
+}
+
+.oke-admin__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--oke-dark-line, rgba(250, 250, 246, 0.12));
+}
+
+.oke-admin__bar-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.oke-admin__layout {
+  display: grid;
+  grid-template-columns: minmax(16rem, 22rem) 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .oke-admin__layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.oke-admin__list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.oke-admin__row {
+  width: 100%;
+  text-align: left;
+  appearance: none;
+  border: 1px solid var(--oke-dark-line, rgba(250, 250, 246, 0.12));
+  background: var(--oke-dark-elevated, #12151a);
+  color: inherit;
+  padding: 0.85rem 0.9rem;
+  cursor: pointer;
+  display: grid;
+  gap: 0.35rem;
+  font: inherit;
+}
+
+.oke-admin__row.is-active,
+.oke-admin__row:hover {
+  border-color: rgba(21, 112, 216, 0.55);
+}
+
+.oke-admin__row-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.oke-admin__row-meta {
+  font-size: 0.75rem;
+  color: var(--oke-dark-muted, #9aa3ad);
+}
+
+.oke-admin__row-desc {
+  font-size: 0.85rem;
+  color: var(--oke-dark-muted, #9aa3ad);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.oke-admin__badge {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.15rem 0.4rem;
+  border: 1px solid currentColor;
+}
+
+.oke-admin__badge--new {
+  color: var(--oke-accent, #1570d8);
+}
+
+.oke-admin__badge--seen {
+  color: var(--oke-warning, #c48a1a);
+}
+
+.oke-admin__badge--done {
+  color: var(--oke-success, #2f8f5b);
+}
+
+.oke-admin__detail {
+  padding: 1.25rem;
+  background: var(--oke-dark-elevated, #12151a);
+  border: 1px solid var(--oke-dark-line, rgba(250, 250, 246, 0.12));
+  min-height: 18rem;
+}
+
+.oke-admin__detail-head h2 {
+  margin: 0 0 0.35rem;
+  font-family: var(--oke-font-display, sans-serif);
+  font-size: 1.5rem;
+}
+
+.oke-admin__detail-head p {
+  margin: 0.15rem 0;
+}
+
+.oke-admin__detail-head a {
+  color: var(--oke-accent, #1570d8);
+}
+
+.oke-admin__status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0;
+}
+
+.oke-admin__body h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--oke-dark-muted, #9aa3ad);
+}
+
+.oke-admin__description {
+  margin: 0;
+  white-space: pre-wrap;
+  line-height: 1.55;
+}
+
+.oke-admin__photo {
+  max-width: min(100%, 28rem);
+  height: auto;
+  display: block;
+  background: #000;
+  border: 1px solid var(--oke-dark-line, rgba(250, 250, 246, 0.12));
+}
+
+.oke-admin__muted {
+  margin: 0;
+  color: var(--oke-dark-muted, #9aa3ad);
+  font-size: 0.9rem;
+}

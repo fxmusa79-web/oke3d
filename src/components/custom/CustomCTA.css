@@ -28,7 +28,7 @@
 
 .custom-cta__eyebrow {
   margin: 0 0 0.75rem;
-  font-family: var(--oke-font-mono, 'JetBrains Mono', ui-monospace, monospace);
+  font-family: var(--oke-font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -71,7 +71,7 @@
   border-radius: 2px;
   background: #fff;
   color: #0a0a0a;
-  font-family: var(--oke-font-body, 'Outfit', system-ui, sans-serif);
+  font-family: var(--oke-font-body);
   font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.1em;

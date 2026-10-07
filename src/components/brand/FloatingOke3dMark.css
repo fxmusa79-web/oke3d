@@ -1,0 +1,16 @@
+.oke-float-mark {
+  width: 100%;
+  height: clamp(10rem, 28vw, 16rem);
+  border-radius: 0.5rem;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(21, 112, 216, 0.18), transparent 55%),
+    #0a0a0a;
+  overflow: hidden;
+  border: 1px solid rgba(250, 250, 246, 0.08);
+}
+
+.oke-float-mark canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

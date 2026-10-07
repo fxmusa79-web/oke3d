@@ -48,7 +48,7 @@
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 10px 30px rgba(17, 17, 17, 0.08);
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-family: var(--oke-font-mono);
   font-size: 0.65rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;

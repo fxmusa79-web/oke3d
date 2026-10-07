@@ -1,0 +1,63 @@
+.oke-announce {
+  position: relative;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: var(--oke-announce-h);
+  padding: 0.45rem var(--oke-gutter);
+  background: var(--oke-ink);
+  color: var(--oke-dark-muted);
+}
+
+.oke-announce__text {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem 1rem;
+  font-family: var(--oke-font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: rgba(244, 241, 234, 0.82);
+}
+
+.oke-announce__cta {
+  color: var(--oke-accent-filament);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.oke-announce__cta:hover,
+.oke-announce__cta:focus-visible {
+  text-decoration: underline;
+}
+
+.oke-announce__close {
+  position: absolute;
+  right: var(--oke-gutter);
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: rgba(244, 241, 234, 0.55);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.oke-announce__close:hover,
+.oke-announce__close:focus-visible {
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .oke-announce__text {
+    padding-right: 1.5rem;
+    font-size: 0.62rem;
+  }
+}

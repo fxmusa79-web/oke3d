@@ -1,0 +1,116 @@
+.oke-hero-viewer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 16rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  perspective: 1000px;
+}
+
+.oke-hero-viewer__particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.oke-hero-viewer__parallax {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 14rem);
+  height: clamp(12rem, 36vh, 18rem);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.oke-hero-viewer__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 32px 56px rgba(17, 17, 17, 0.16));
+  user-select: none;
+  pointer-events: none;
+}
+
+.oke-hero-viewer__badge {
+  position: absolute;
+  z-index: 3;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(17, 17, 17, 0.08);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #111;
+  white-space: nowrap;
+}
+
+.oke-hero-viewer__badge--a {
+  top: 18%;
+  left: 0;
+}
+
+.oke-hero-viewer__badge--b {
+  top: 42%;
+  right: 0;
+}
+
+.oke-hero-viewer__dots {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 0.55rem;
+  margin-top: 1.25rem;
+}
+
+.oke-hero-viewer__dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  border: 0;
+  padding: 0;
+  background: rgba(17, 17, 17, 0.18);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.oke-hero-viewer__dot.is-active {
+  background: #111;
+  transform: scale(1.2);
+}
+
+.oke-hero-viewer__dot:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 3px;
+}
+
+@media (min-width: 1024px) {
+  .oke-hero-viewer {
+    min-height: min(56svh, 26rem);
+  }
+
+  .oke-hero-viewer__parallax {
+    width: min(100%, 18rem);
+    height: clamp(14rem, 40vh, 22rem);
+    margin-right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oke-hero-viewer__parallax,
+  .oke-hero-viewer__dot {
+    transition: none;
+    will-change: auto;
+  }
+}

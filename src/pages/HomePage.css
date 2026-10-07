@@ -1,0 +1,8 @@
+.home-edition-wrap {
+  margin: clamp(1rem, 4vh, 2rem) 0;
+}
+
+.home-edition-wrap__fallback {
+  min-height: 60vh;
+  background: var(--oke-dark-bg);
+}

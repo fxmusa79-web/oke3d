@@ -1,0 +1,134 @@
+.oke-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.oke-gallery__main {
+  width: 100%;
+  border: 1px solid var(--oke-line);
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.oke-gallery__frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.oke-gallery__frame.is-studio {
+  background: #ffffff;
+}
+
+.oke-gallery__frame.is-exploded {
+  background: #0a0a0a;
+}
+
+.oke-gallery__frame.is-lifestyle {
+  background: var(--oke-surface);
+}
+
+.oke-gallery__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  padding: 1.5rem;
+}
+
+.oke-gallery__frame.is-lifestyle img {
+  object-fit: contain;
+  padding: 0.75rem;
+}
+
+.oke-gallery__hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 0;
+  padding: 0;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  background: #1a7ef0;
+  box-shadow: 0 0 0 4px rgba(26, 126, 240, 0.28);
+  cursor: pointer;
+}
+
+.oke-gallery__hotspot span {
+  position: absolute;
+  left: 1.1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  padding: 0.3rem 0.5rem;
+  background: rgba(10, 10, 10, 0.88);
+  color: #fff;
+  font-family: var(--oke-font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.oke-gallery__hotspot:hover span,
+.oke-gallery__hotspot:focus-visible span {
+  opacity: 1;
+}
+
+.oke-gallery__main .swiper-button-prev,
+.oke-gallery__main .swiper-button-next {
+  color: var(--oke-ink);
+  width: 2rem;
+  height: 2rem;
+}
+
+.oke-gallery__main .swiper-button-prev::after,
+.oke-gallery__main .swiper-button-next::after {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.oke-gallery__thumbs {
+  width: 100%;
+}
+
+.oke-gallery__thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  padding: 0;
+  border: 1px solid var(--oke-line);
+  background: #ffffff;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.55;
+}
+
+.oke-gallery__thumb.is-exploded {
+  background: #0a0a0a;
+}
+
+.oke-gallery__thumb.is-active {
+  opacity: 1;
+  border-color: var(--oke-ink);
+}
+
+.oke-gallery__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0.4rem;
+}
+
+@media (max-width: 900px) {
+  .oke-gallery__frame {
+    aspect-ratio: 1 / 1;
+    max-height: 70vw;
+  }
+}

@@ -1,0 +1,106 @@
+.oke-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.oke-drawer.is-open {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.oke-drawer__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transition: opacity var(--oke-dur-medium) var(--oke-ease-out);
+  cursor: pointer;
+}
+
+.oke-drawer.is-open .oke-drawer__backdrop {
+  opacity: 1;
+}
+
+.oke-drawer__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(100%, 22rem);
+  padding: 1.25rem var(--oke-gutter) 2rem;
+  background: var(--oke-bg-elevated);
+  border-left: 1px solid var(--oke-line);
+  transform: translateX(105%);
+  transition: transform var(--oke-dur-medium) var(--oke-ease-out);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.oke-drawer.is-open .oke-drawer__panel {
+  transform: translateX(0);
+}
+
+.oke-drawer__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.35rem;
+}
+
+.oke-drawer__close {
+  border: 0;
+  background: transparent;
+  color: var(--oke-ink-muted);
+  font-family: var(--oke-font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.oke-drawer__close:hover,
+.oke-drawer__close:focus-visible {
+  color: var(--oke-ink);
+}
+
+.oke-drawer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.oke-drawer__link {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--oke-line);
+  color: var(--oke-ink);
+  text-decoration: none;
+  font-family: var(--oke-font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.oke-drawer__link:hover,
+.oke-drawer__link:focus-visible,
+.oke-drawer__link.active {
+  color: var(--oke-accent-filament);
+}
+
+.oke-drawer__cta {
+  margin-top: auto;
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oke-drawer__backdrop,
+  .oke-drawer__panel {
+    transition: none;
+  }
+}

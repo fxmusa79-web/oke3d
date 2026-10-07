@@ -9,7 +9,7 @@ export const MOTION = {
   medium: 0.7,
   cinematic: 1.4,
   /** Hero scroll distance in viewport heights (desktop) */
-  heroScrollVh: 420,
+  heroScrollVh: 140,
   /** Subtle ambient figure idle */
   idleRotateDeg: 2.5,
   /** Max scroll-linked figure yaw (desktop) */

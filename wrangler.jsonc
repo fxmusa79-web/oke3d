@@ -13,28 +13,27 @@
 	"observability": {
 		"enabled": true
 	},
-	"upload_source_maps": true
+	"upload_source_maps": true,
 	/**
-	 * Smart Placement
-	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
+	 * D1 + R2 for custom figure requests.
+	 * Provision first, then uncomment and paste the real database_id:
+	 *   npx wrangler d1 create oke3d_requests
+	 *   npx wrangler d1 migrations apply CUSTOM_REQUESTS --remote
+	 *   npx wrangler r2 bucket create oke3d-uploads
+	 *
+	 * "d1_databases": [
+	 *   {
+	 *     "binding": "CUSTOM_REQUESTS",
+	 *     "database_name": "oke3d_requests",
+	 *     "database_id": "REPLACE_WITH_D1_ID",
+	 *     "migrations_dir": "migrations"
+	 *   }
+	 * ],
+	 * "r2_buckets": [
+	 *   {
+	 *     "binding": "R2_UPLOADS",
+	 *     "bucket_name": "oke3d-uploads"
+	 *   }
+	 * ]
 	 */
-	// "placement": {  "mode": "smart" }
-	/**
-	 * Bindings
-	 * Bindings allow your Worker to interact with resources on the Cloudflare Developer Platform, including
-	 * databases, object storage, AI inference, real-time communication and more.
-	 * https://developers.cloudflare.com/workers/runtime-apis/bindings/
-	 */
-	/**
-	 * Environment Variables
-	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
-	 * Note: Use secrets to store sensitive data.
-	 * https://developers.cloudflare.com/workers/configuration/secrets/
-	 */
-	// "vars": {  "MY_VARIABLE": "production_value" }
-	/**
-	 * Service Bindings (communicate between multiple Workers)
-	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
-	 */
-	// "services": [  {   "binding": "MY_SERVICE",   "service": "my-service"  } ]
 }

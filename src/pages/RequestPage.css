@@ -1,0 +1,100 @@
+.oke-request {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 7vh, 4rem) var(--oke-gutter) clamp(4rem, 10vh, 6rem);
+}
+
+.oke-request__eyebrow {
+  margin: 0 0 0.65rem;
+  font-family: var(--oke-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--oke-accent);
+}
+
+.oke-request__title {
+  margin: 0 0 0.75rem;
+  font-family: var(--oke-font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 1.85rem);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.oke-request__lede {
+  margin: 0 0 2rem;
+  color: var(--oke-ink-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.oke-request__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.oke-request__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.oke-request__field span {
+  font-family: var(--oke-font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--oke-ink-muted);
+}
+
+.oke-request__field input,
+.oke-request__field select,
+.oke-request__field textarea {
+  width: 100%;
+  border: 1px solid var(--oke-line);
+  background: #ffffff;
+  color: var(--oke-ink);
+  padding: 0.85rem 0.95rem;
+  font: inherit;
+  border-radius: 2px;
+}
+
+.oke-request__field input:focus-visible,
+.oke-request__field select:focus-visible,
+.oke-request__field textarea:focus-visible {
+  outline: 2px solid var(--oke-accent);
+  outline-offset: 2px;
+}
+
+.oke-request__field textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.oke-request__hint {
+  font-style: normal;
+  font-size: 0.8rem;
+  color: var(--oke-ink-muted);
+}
+
+.oke-request__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.oke-request__ok {
+  margin: 0;
+  color: #1f7a4d;
+  font-size: 0.9rem;
+}
+
+.oke-request__err {
+  margin: 0;
+  color: var(--oke-danger);
+  font-size: 0.9rem;
+}

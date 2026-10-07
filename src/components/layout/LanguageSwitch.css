@@ -1,0 +1,57 @@
+.oke-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.oke-lang__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  border: 0;
+  background: transparent;
+  color: var(--oke-ink-muted);
+  font-family: var(--oke-font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  padding: 0.25rem 0.28rem;
+  border-radius: 2px;
+  transition: color var(--oke-dur-small) var(--oke-ease-out);
+}
+
+.oke-lang__btn.is-active,
+.oke-lang__btn:hover,
+.oke-lang__btn:focus-visible {
+  color: var(--oke-ink);
+}
+
+.oke-lang__btn.is-active {
+  color: var(--oke-accent-filament);
+}
+
+.oke-lang__btn:focus-visible {
+  outline: 1px solid var(--oke-accent);
+  outline-offset: 2px;
+}
+
+.oke-lang__flag {
+  width: 1rem;
+  height: 0.68rem;
+  flex-shrink: 0;
+  border-radius: 1px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.oke-lang__sep {
+  color: var(--oke-ink-muted);
+  opacity: 0.45;
+  font-size: 0.65rem;
+  user-select: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oke-lang__btn {
+    transition: none;
+  }
+}

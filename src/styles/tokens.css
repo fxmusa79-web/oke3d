@@ -1,28 +1,40 @@
-/* OKE3D design + motion tokens
-   Blue = accent only. Never as default full-page wash. */
+/* OKE3D design tokens — light premium studio foundation.
+   Blue = accent only. Dark sections are intentional bands. */
 
 :root {
-  /* Color */
-  --oke-bg: #07090d;
-  --oke-bg-elevated: #0e1218;
-  --oke-surface: #141a22;
-  --oke-ink: #f4f1ea;
-  --oke-ink-muted: #9aa3ad;
-  --oke-line: rgba(244, 241, 234, 0.12);
-  --oke-accent: #1a8cff;
-  --oke-accent-soft: rgba(26, 140, 255, 0.18);
-  --oke-accent-filament: #3db4ff;
-  --oke-mint: #a8d4bc;
-  --oke-danger: #ff5a5a;
+  /* Light foundation */
+  --oke-bg: #f5f3ef;
+  --oke-bg-warm: #faf8f4;
+  --oke-bg-elevated: #ffffff;
+  --oke-surface: #eceae4;
+  --oke-ink: #14171c;
+  --oke-ink-muted: #5c6570;
+  --oke-line: rgba(20, 23, 28, 0.1);
+  --oke-line-strong: rgba(20, 23, 28, 0.18);
+
+  /* Accent — filament blue, never page wash */
+  --oke-accent: #1570d8;
+  --oke-accent-soft: rgba(21, 112, 216, 0.12);
+  --oke-accent-filament: #1a7ef0;
+  --oke-mint: #7fb8a0;
+
+  /* Dark band (BBQ / footer) */
+  --oke-dark-bg: #12151a;
+  --oke-dark-elevated: #1a1f27;
+  --oke-dark-ink: #f4f1ea;
+  --oke-dark-muted: #9aa3ad;
+  --oke-dark-line: rgba(244, 241, 234, 0.12);
+
+  --oke-danger: #d64545;
 
   /* Typography */
   --oke-font-display: 'Syne', 'Arial Narrow', sans-serif;
   --oke-font-body: 'Outfit', system-ui, sans-serif;
   --oke-font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
-  --oke-tracking-display: -0.04em;
-  --oke-tracking-meta: 0.16em;
-  --oke-leading-display: 0.92;
+  --oke-tracking-display: -0.035em;
+  --oke-tracking-meta: 0.14em;
+  --oke-leading-display: 1.02;
   --oke-leading-body: 1.55;
 
   /* Space */
@@ -36,30 +48,28 @@
   --oke-space-8: 4.5rem;
   --oke-space-9: 7rem;
 
-  /* Radius — restrained */
   --oke-radius-xs: 2px;
   --oke-radius-sm: 6px;
-  --oke-radius-md: 12px;
+  --oke-radius-md: 10px;
 
-  /* Shadow — subtle, product-weight */
-  --oke-shadow-figure: 0 40px 80px rgba(0, 0, 0, 0.55);
-  --oke-shadow-soft: 0 12px 40px rgba(0, 0, 0, 0.35);
+  --oke-shadow-figure: 0 28px 60px rgba(20, 23, 28, 0.14);
+  --oke-shadow-soft: 0 10px 30px rgba(20, 23, 28, 0.08);
+  --oke-shadow-card: 0 1px 0 rgba(20, 23, 28, 0.04);
 
-  /* Motion duration */
   --oke-dur-micro: 180ms;
   --oke-dur-small: 360ms;
   --oke-dur-medium: 700ms;
   --oke-dur-cinematic: 1400ms;
 
-  /* Easing — CSS fallbacks; GSAP uses CustomEase / built-ins in JS */
   --oke-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --oke-ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
   --oke-ease-product: cubic-bezier(0.22, 1, 0.36, 1);
 
-  /* Layout */
-  --oke-nav-h: 4.5rem;
+  --oke-announce-h: 2.35rem;
+  --oke-nav-h: 4.1rem;
   --oke-gutter: clamp(1rem, 3vw, 2.5rem);
   --oke-max-editorial: 72rem;
+  --oke-max-page: 92rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

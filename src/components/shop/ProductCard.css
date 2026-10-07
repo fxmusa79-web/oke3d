@@ -1,0 +1,122 @@
+.oke-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.oke-card__media {
+  display: block;
+  aspect-ratio: 4 / 5;
+  max-height: 22rem;
+  background: #ffffff;
+  border: 1px solid rgba(20, 23, 28, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.oke-card.is-studio .oke-card__media,
+.oke-card.is-lifestyle .oke-card__media {
+  background: #ffffff;
+}
+
+.oke-card.is-exploded .oke-card__media,
+.oke-card.is-bbq .oke-card__media {
+  aspect-ratio: 1 / 1;
+  max-height: 20rem;
+  background: #0a0a0a;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.oke-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  padding: 2rem;
+  box-sizing: border-box;
+  transition: transform var(--oke-dur-medium) var(--oke-ease-out);
+}
+
+.oke-card.is-bbq .oke-card__media img,
+.oke-card.is-exploded .oke-card__media img {
+  padding: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .oke-card__media {
+    max-height: 26rem;
+  }
+
+  .oke-card__media img {
+    padding: 3rem;
+  }
+
+  .oke-card.is-bbq .oke-card__media,
+  .oke-card.is-exploded .oke-card__media {
+    max-height: 22rem;
+  }
+
+  .oke-card.is-bbq .oke-card__media img,
+  .oke-card.is-exploded .oke-card__media img {
+    padding: 1.5rem;
+  }
+}
+
+.oke-card__media img.is-fallback {
+  object-fit: none;
+  opacity: 0.45;
+  padding: 2.5rem;
+}
+
+.oke-card:hover .oke-card__media img,
+.oke-card:focus-within .oke-card__media img {
+  transform: scale(1.03);
+}
+
+.oke-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-inline: 0.1rem;
+}
+
+.oke-card__meta {
+  margin: 0;
+  font-family: var(--oke-font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--oke-ink-muted);
+}
+
+.oke-card__title {
+  margin: 0;
+  font-family: var(--oke-font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.oke-card__title a {
+  color: var(--oke-ink);
+  text-decoration: none;
+}
+
+.oke-card__title a:hover,
+.oke-card__title a:focus-visible {
+  color: var(--oke-accent);
+}
+
+.oke-card__status {
+  margin: 0.15rem 0 0;
+  font-size: 0.8rem;
+  color: var(--oke-ink-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oke-card__media img {
+    transition: none;
+  }
+}

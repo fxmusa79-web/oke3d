@@ -1,0 +1,115 @@
+.custom-design {
+  /* mx-6 lg:mx-12 */
+  margin: 0 1.5rem clamp(2rem, 5vh, 3.5rem);
+}
+
+.custom-design__panel {
+  max-width: 92rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.75rem;
+  /* p-8 lg:p-16 */
+  padding: 2rem;
+  background: #0a0a0a;
+  border-radius: 1.25rem;
+  color: #f5f3ef;
+  box-sizing: border-box;
+}
+
+.custom-design__copy {
+  flex: 1 1 16rem;
+  max-width: 36rem;
+  min-width: 0;
+}
+
+.custom-design__eyebrow {
+  margin: 0 0 0.75rem;
+  font-family: var(--oke-font-mono, 'JetBrains Mono', ui-monospace, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #60a5fa;
+}
+
+.custom-design__title {
+  margin: 0 0 0.75rem;
+  font-family: var(--oke-font-display, 'Syne', system-ui, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #fff;
+  max-width: 16ch;
+}
+
+.custom-design__lede {
+  margin: 0;
+  color: rgba(245, 243, 239, 0.62);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  max-width: 34rem;
+}
+
+.custom-design__action {
+  flex: 0 0 auto;
+}
+
+.custom-design__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  border: 0;
+  border-radius: 2px;
+  background: #fff;
+  color: #0a0a0a;
+  font-family: var(--oke-font-body, 'Outfit', system-ui, sans-serif);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.custom-design__btn:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 3px;
+}
+
+@media (min-width: 1024px) {
+  .custom-design {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+
+  .custom-design__panel {
+    padding: 4rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .custom-design {
+    /* Clear sticky mobile CTA */
+    margin-bottom: 5.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .custom-design__action {
+    width: 100%;
+  }
+
+  .custom-design__btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .custom-design__btn {
+    will-change: auto;
+  }
+}

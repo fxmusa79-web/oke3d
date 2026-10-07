@@ -1,0 +1,11 @@
+.oke-reveal {
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oke-reveal {
+    will-change: auto;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

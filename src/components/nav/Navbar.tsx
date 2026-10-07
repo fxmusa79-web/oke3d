@@ -1,10 +1,10 @@
-import { brandLogo } from '../../data/products'
+import { brandIcon } from '../../data/products'
 import './Navbar.css'
 
 const links = [
+  { href: '#bbq', label: 'Collectie' },
   { href: '#shop', label: 'Shop' },
-  { href: '#collections', label: 'Collections' },
-  { href: '#about', label: 'About' },
+  { href: '#about', label: 'Over' },
 ] as const
 
 export function Navbar() {
@@ -12,15 +12,19 @@ export function Navbar() {
     <header className="oke-nav">
       <a className="oke-nav__brand" href="#top" aria-label="OKE3D home">
         <img
-          src={brandLogo}
-          alt="OKE3D"
-          className="oke-nav__logo"
-          width={160}
-          height={48}
+          src={brandIcon}
+          alt=""
+          className="oke-nav__icon"
+          width={40}
+          height={40}
         />
+        <span className="oke-nav__wordmark">
+          OKE<span className="oke-nav__wordmark-3d">3D</span>
+          <span className="oke-nav__tld">.nl</span>
+        </span>
       </a>
 
-      <nav className="oke-nav__links" aria-label="Primary">
+      <nav className="oke-nav__links" aria-label="Hoofdnavigatie">
         {links.map((link) => (
           <a key={link.href} href={link.href} className="oke-nav__link">
             {link.label}

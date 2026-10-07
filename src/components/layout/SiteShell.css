@@ -1,0 +1,20 @@
+.oke-shell {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: var(--oke-bg);
+  color: var(--oke-ink);
+  overflow-x: hidden;
+}
+
+.oke-shell__main {
+  flex: 1;
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .oke-shell__main {
+    padding-bottom: 4.5rem;
+  }
+}

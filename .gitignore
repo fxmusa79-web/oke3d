@@ -39,3 +39,6 @@ oke3d_deploy.pub
 # Build / agent caches
 .wrangler/
 .dev.vars
+
+# Local browser QA screenshots
+_preview/

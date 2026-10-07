@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;800;900&family=JetBrains+Mono:wght@500&display=swap');
+
+.oke-hero {
+  position: relative;
+  min-height: 100svh;
+  background: #fafaf6;
+  overflow: hidden;
+  isolation: isolate;
+  /* px-6 py-12 */
+  padding: 3rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.oke-hero__grid {
+  position: relative;
+  z-index: 1;
+  max-width: 92rem;
+  margin: 0 auto;
+  min-height: calc(100svh - 6rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+}
+
+.oke-hero__copy {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  max-width: 40rem;
+  /* Optical room so ultra-bold glyphs never clip left */
+  padding-left: 0.4rem;
+  padding-right: 0.25rem;
+  box-sizing: border-box;
+}
+
+.oke-hero__eyebrow {
+  display: block;
+  margin: 0 0 1.25rem;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: clamp(0.62rem, 2.2vw, 0.75rem);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #2563eb;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.oke-hero__title {
+  margin: 0 0 1.25rem;
+  max-width: 14ch;
+  font-family: 'Inter Tight', system-ui, sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 6vw, 4.8rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: #111;
+  overflow: visible;
+  /* Negative tracking bleeds left ink past the box — pad so overflow:hidden
+     on .oke-hero does not clip the leading “V”. */
+  padding-left: 0.08em;
+  text-indent: 0;
+}
+
+.oke-hero__line {
+  display: block;
+  white-space: normal;
+  overflow: visible;
+}
+
+.oke-hero__line--strong {
+  font-weight: 900;
+  color: #111;
+}
+
+.oke-hero__line--soft {
+  font-weight: 300;
+  color: #6b7280;
+}
+
+.oke-hero__lede {
+  margin: 0 0 1.75rem;
+  max-width: 28rem;
+  font-family: 'Inter Tight', system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: #4b5563;
+}
+
+.oke-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.oke-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-family: 'Inter Tight', system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  will-change: transform;
+}
+
+.oke-hero__btn--primary {
+  background: #111;
+  color: #fff;
+  border: 1px solid #111;
+}
+
+.oke-hero__btn--secondary {
+  background: transparent;
+  color: #111;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.oke-hero__stage {
+  position: relative;
+  z-index: 10;
+  min-width: 0;
+  width: 100%;
+  max-width: 32rem;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  /* lg:px-16 py-12 */
+  .oke-hero {
+    padding: 3rem 4rem;
+  }
+
+  .oke-hero__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 2.5rem;
+    min-height: calc(100svh - 6rem);
+  }
+
+  .oke-hero__copy {
+    grid-column: span 6;
+    padding-left: 0.25rem;
+  }
+
+  .oke-hero__stage {
+    grid-column: span 6;
+    max-width: 34rem;
+    margin-inline: 0 auto;
+    justify-self: end;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .oke-hero {
+    padding: 2.75rem 1.5rem 3rem;
+  }
+
+  .oke-hero__title {
+    max-width: 11ch;
+    letter-spacing: -0.03em;
+  }
+
+  .oke-hero__stage {
+    max-width: min(100%, 22rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oke-hero__btn {
+    will-change: auto;
+  }
+}

@@ -1,0 +1,109 @@
+.oke-footer {
+  margin-top: 0;
+  padding: clamp(3rem, 8vh, 4.5rem) var(--oke-gutter) 2rem;
+  background: var(--oke-dark-bg);
+  color: var(--oke-dark-muted);
+}
+
+.oke-footer__grid {
+  max-width: 92rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.oke-footer__brand p {
+  margin: 0.85rem 0 0;
+  max-width: 18rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.oke-footer__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--oke-dark-ink);
+  font-family: var(--oke-font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.oke-footer__logo img {
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: var(--oke-radius-sm);
+}
+
+.oke-footer__logo span span {
+  color: var(--oke-accent-filament);
+}
+
+.oke-footer__heading {
+  margin: 0 0 0.85rem;
+  font-family: var(--oke-font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oke-dark-ink);
+}
+
+.oke-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.oke-footer a {
+  color: var(--oke-dark-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.oke-footer a:hover,
+.oke-footer a:focus-visible {
+  color: var(--oke-accent-filament);
+}
+
+.oke-footer__bottom {
+  max-width: 92rem;
+  margin: 2.5rem auto 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--oke-dark-line);
+}
+
+.oke-footer__bottom p {
+  margin: 0;
+  font-size: 0.78rem;
+}
+
+/* Language switch readable on dark footer */
+.oke-footer .oke-lang__btn {
+  color: var(--oke-dark-muted);
+}
+
+.oke-footer .oke-lang__btn.is-active {
+  color: var(--oke-accent-filament);
+}
+
+@media (max-width: 900px) {
+  .oke-footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .oke-footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 520px) {
+  .oke-footer__grid {
+    grid-template-columns: 1fr;
+  }
+}

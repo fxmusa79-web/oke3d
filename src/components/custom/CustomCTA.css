@@ -1,0 +1,145 @@
+.custom-cta {
+  padding: 0 1.5rem;
+  margin: 0 0 clamp(2rem, 5vh, 3.5rem);
+}
+
+.custom-cta__panel {
+  position: relative;
+  max-width: 92rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.75rem;
+  padding: 2rem;
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.25rem;
+  color: #f5f3ef;
+  overflow: hidden;
+}
+
+.custom-cta__copy {
+  flex: 1 1 16rem;
+  max-width: 36rem;
+  min-width: 0;
+}
+
+.custom-cta__eyebrow {
+  margin: 0 0 0.75rem;
+  font-family: var(--oke-font-mono, 'JetBrains Mono', ui-monospace, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #60a5fa;
+}
+
+.custom-cta__title {
+  margin: 0 0 0.75rem;
+  font-family: var(--oke-font-display, 'Syne', system-ui, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #fff;
+  max-width: 16ch;
+}
+
+.custom-cta__lede {
+  margin: 0;
+  color: rgba(245, 243, 239, 0.62);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  max-width: 34rem;
+}
+
+.custom-cta__action {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.custom-cta__btn {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 1rem 1.5rem;
+  border: 0;
+  border-radius: 2px;
+  background: #fff;
+  color: #0a0a0a;
+  font-family: var(--oke-font-body, 'Outfit', system-ui, sans-serif);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.custom-cta__btn:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 3px;
+}
+
+.custom-cta__sparks {
+  position: absolute;
+  inset: -18%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.custom-cta__spark {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: #60a5fa;
+  opacity: 0;
+}
+
+@media (min-width: 1024px) {
+  .custom-cta {
+    padding: 0 3rem;
+  }
+
+  .custom-cta__panel {
+    padding: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .custom-cta {
+    padding: 0 4rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .custom-cta {
+    /* Clear sticky mobile CTA so "Start ontwerpen" stays clickable */
+    padding-bottom: 4.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .custom-cta__panel {
+    padding: 1.75rem;
+  }
+
+  .custom-cta__action {
+    width: 100%;
+  }
+
+  .custom-cta__btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .custom-cta__btn {
+    will-change: auto;
+  }
+}

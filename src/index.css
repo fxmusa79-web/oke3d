@@ -8,7 +8,8 @@
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
+  overflow-x: hidden;
 }
 
 body {
@@ -23,15 +24,27 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 #root {
   min-height: 100svh;
+  overflow-x: hidden;
+}
+
+h1,
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.12;
 }
 
 img {
   max-width: 100%;
   display: block;
+}
+
+a {
+  color: inherit;
 }
 
 :focus-visible {

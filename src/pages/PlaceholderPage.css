@@ -1,0 +1,47 @@
+.oke-placeholder {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: clamp(4rem, 12vh, 7rem) var(--oke-gutter);
+}
+
+.oke-placeholder__eyebrow {
+  margin: 0 0 0.75rem;
+  font-family: var(--oke-font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oke-accent);
+}
+
+.oke-placeholder h1 {
+  margin: 0 0 1rem;
+  font-family: var(--oke-font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: var(--oke-tracking-display);
+}
+
+.oke-placeholder p {
+  margin: 0 0 1.5rem;
+  color: var(--oke-ink-muted);
+  line-height: 1.55;
+}
+
+.oke-placeholder__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+}
+
+.oke-placeholder a {
+  color: var(--oke-accent);
+  text-decoration: none;
+  font-family: var(--oke-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.oke-placeholder a:hover,
+.oke-placeholder a:focus-visible {
+  text-decoration: underline;
+}

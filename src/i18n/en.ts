@@ -1,0 +1,218 @@
+import type { Dictionary } from './types'
+
+export const en: Dictionary = {
+  meta: {
+    title: 'OKE3D. 3D-printed collectibles & made-to-order prints',
+    description:
+      'OKE3D makes 3D-printed collectibles, editions and made-to-order prints. From digital idea to physical object.',
+  },
+  announce: {
+    message: 'Unique 3D prints · Small batches · Made to order',
+    cta: 'Discover more',
+    dismiss: 'Dismiss',
+  },
+  nav: {
+    collection: 'Collection',
+    editions: 'Editions',
+    custom: 'Custom',
+    about: 'About OKE3D',
+    cta: 'View collection',
+    openMenu: 'Open menu',
+    closeMenu: 'Close menu',
+    language: 'Language',
+  },
+  hero: {
+    eyebrow: '3D prints from our studio',
+    titleLine1: 'From digital idea',
+    titleLine2: 'to real object.',
+    lede: 'Explore unique 3D prints, special collections and products we make to order for you.',
+    primaryCta: 'View collection',
+    secondaryCta: 'Request a print',
+  },
+  customCta: {
+    eyebrow: 'Custom',
+    title: 'Design your own 3D figure.',
+    lede: 'Upload a photo or sketch. We turn it into a collectible in our studio.',
+    cta: 'Start designing →',
+    modal: {
+      title: 'Your custom OKE',
+      close: 'Close',
+      back: 'Back',
+      next: 'Continue',
+      submit: 'Send',
+      sending: 'Sending…',
+      done: 'Done',
+      uploadHint: 'Upload a photo of yourself or a sketch. We use this as a starting point.',
+      uploadCta: 'Choose an image',
+      previewHint: 'Drag to rotate your concept. This is a 2.5D preview, not the final render.',
+      previewLabel: '3D Preview (concept)',
+      name: 'Name',
+      email: 'Email',
+      description: 'Description / wishes',
+      reviewHint: 'Review your request and send. We will get back to you soon.',
+      reviewImage: 'Reference image',
+      successTitle: 'Request received',
+      successBody: 'We will review it and get back to you soon.',
+      error: 'Sending failed. Please try again.',
+    },
+  },
+  about: {
+    eyebrow: 'About OKE3D',
+    title: '3D printing with character.',
+    lede: 'From collectibles and special editions to made-to-order prints. We turn digital designs into objects you can hold, from our own studio.',
+  },
+  make: {
+    eyebrow: 'What we make',
+    title: 'Objects you can hold.',
+    lede: 'Everything below comes from our real collections and editions. No invented categories.',
+    items: [
+      {
+        title: 'Collectibles',
+        body: '3D-printed figures and collectible objects with their own character.',
+      },
+      {
+        title: 'Special editions',
+        body: 'Small themed collections such as BBQ Edition, each with its own identity.',
+      },
+      {
+        title: 'Custom prints',
+        body: 'Personal OKE prints based on your idea or design.',
+      },
+      {
+        title: 'Made to order',
+        body: 'Your design, photo, sketch or idea. We review what is possible.',
+      },
+    ],
+  },
+  featured: {
+    eyebrow: 'Featured',
+    title: 'From the collection',
+    lede: 'A selection from existing editions. Pricing and availability via request.',
+    viewAll: 'Full collection',
+    requestStatus: 'On request',
+  },
+  edition: {
+    eyebrow: 'Special edition',
+    title: 'BBQ Edition',
+    lede: 'Grillmasters, aprons and exploded builds. A themed collection with its own identity.',
+    cta: 'View BBQ Edition',
+    specs: [
+      '3D-printed collectible',
+      'Exploded assembly view',
+      'OKE. signature finish',
+    ],
+    cards: {
+      apron: 'Apron',
+      grillmaster: 'Grillmaster',
+      ninja: 'Ninja',
+    },
+  },
+  custom: {
+    eyebrow: 'Custom',
+    title: 'Got something in mind?',
+    lede: 'Send your design, photo, sketch or idea. We review what is possible and turn it into a 3D print.',
+    primaryCta: 'Start your request',
+    secondaryCta: 'How it works',
+    accepts:
+      'You can send a 3D file, photo, sketch, reference or just an idea. Not everything is printable. We review what can be done.',
+    types: ['Photo', 'Sketch', '3D file', 'Idea'],
+    cards: {
+      customDolls: {
+        title: 'Custom figures',
+        body: 'Your idea as a collectible. From sketch to object in our own studio.',
+      },
+      request: {
+        title: 'Made to order',
+        body: 'Unique editions or one-off prints. Small batches.',
+      },
+    },
+  },
+  process: {
+    eyebrow: 'How it works',
+    title: 'From idea to print',
+    steps: [
+      {
+        title: 'Tell us your idea',
+        body: 'File, photo, sketch or a short description.',
+      },
+      {
+        title: 'We review what’s possible',
+        body: 'Technique, size and feasibility.',
+      },
+      {
+        title: 'We make it',
+        body: 'After approval, your object goes into the printer.',
+      },
+      {
+        title: 'Your idea becomes real',
+        body: 'Ready to hold.',
+      },
+    ],
+  },
+  ideas: {
+    eyebrow: 'Editions',
+    title: 'Our collections',
+    lede: 'Based on what actually exists in the studio.',
+  },
+  finalCta: {
+    title: 'Got an idea?',
+    lede: 'Tell us what you want printed. We’ll reply with what’s possible.',
+    cta: 'Start your request',
+  },
+  footer: {
+    blurb: '3D printing for distinctive ideas, objects and collectibles.',
+    collection: 'Collection',
+    custom: 'Custom',
+    info: 'Info',
+    contact: 'Contact',
+    language: 'Language',
+    links: {
+      collection: 'Collection',
+      editions: 'Editions',
+      custom: 'Custom prints',
+      about: 'About OKE3D',
+      contact: 'Contact',
+      faq: 'FAQ',
+      privacy: 'Privacy',
+      terms: 'Terms',
+      request: 'Request',
+    },
+    rights: 'All rights reserved.',
+  },
+  categories: {
+    all: 'All',
+    'oke-collection': 'OKE. Collection',
+    monochrome: 'Monochrome',
+    'bbq-edition': 'BBQ Edition',
+  },
+  collection: {
+    title: 'Collection',
+    lede: 'Every edition from the studio. Pricing and availability via request.',
+    filterLabel: 'Filter by edition',
+    empty: 'No products in this filter.',
+  },
+  product: {
+    requestCta: 'Submit request',
+    backToCollection: 'Back to collection',
+    inEdition: 'In this edition',
+  },
+  request: {
+    pageTitle: 'Request',
+    lede: 'Tell us what you want printed. We reply with what is possible.',
+    name: 'Name',
+    email: 'Email',
+    product: 'Product',
+    productNone: 'No specific product',
+    message: 'Message',
+    submit: 'Send request',
+    sending: 'Sending...',
+    success: 'Request received. We will get back to you.',
+    error: 'Please fill in name, email and message.',
+  },
+  stickyCta: {
+    label: 'Request a print',
+  },
+  placeholder: {
+    body: 'This page will be expanded in the next phase.',
+  },
+}

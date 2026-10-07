@@ -1,0 +1,86 @@
+.oke-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--oke-font-body);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: var(--oke-radius-xs);
+  cursor: pointer;
+  transition:
+    background var(--oke-dur-small) var(--oke-ease-out),
+    color var(--oke-dur-small) var(--oke-ease-out),
+    border-color var(--oke-dur-small) var(--oke-ease-out),
+    transform var(--oke-dur-small) var(--oke-ease-out);
+}
+
+.oke-btn--md {
+  padding: 0.9rem 1.4rem;
+  font-size: 0.74rem;
+}
+
+.oke-btn--sm {
+  padding: 0.55rem 0.95rem;
+  font-size: 0.68rem;
+}
+
+.oke-btn--primary {
+  background: var(--oke-ink);
+  color: #faf8f4;
+}
+
+.oke-btn--primary:hover,
+.oke-btn--primary:focus-visible {
+  background: var(--oke-accent);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.oke-btn--secondary {
+  background: transparent;
+  color: var(--oke-ink);
+  border-color: var(--oke-line-strong);
+}
+
+.oke-btn--secondary:hover,
+.oke-btn--secondary:focus-visible {
+  border-color: var(--oke-ink);
+  transform: translateY(-1px);
+}
+
+.oke-btn--ghost {
+  background: transparent;
+  color: var(--oke-ink-muted);
+  border-color: transparent;
+  padding-inline: 0.35rem;
+}
+
+.oke-btn--ghost:hover,
+.oke-btn--ghost:focus-visible {
+  color: var(--oke-ink);
+}
+
+.oke-btn--on-dark.oke-btn--primary {
+  background: var(--oke-accent);
+  color: #fff;
+}
+
+.oke-btn--on-dark.oke-btn--secondary {
+  color: var(--oke-dark-ink);
+  border-color: var(--oke-dark-line);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oke-btn {
+    transition: none;
+  }
+
+  .oke-btn--primary:hover,
+  .oke-btn--secondary:hover {
+    transform: none;
+  }
+}
